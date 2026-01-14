@@ -1,0 +1,1444 @@
+{
+  "round": "1501",
+  "effective_date": "2015-01-01",
+  "items": [
+    {
+      "category": "禁止",
+      "card": "イレカエル",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ヴィクトリー・ドラゴン",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "炎征竜－バーナー",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "クリッター",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "グローアップ・バルブ",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "黒き森のウィッチ",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ゴヨウ・ガーディアン",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "混沌の黒魔術師",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "サイバーポッド",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "サウザンド・アイズ・サクリファイス",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "処刑人－マキュラ",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "水征竜－ストリーム",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "聖なる魔術師",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ゼンマイハンター",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "地征竜－リアクタン",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "D-HERO ディスクガイ",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "同族感染ウィルス",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "氷結界の龍 ブリューナク",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ファイバーポッド",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "フィッシュボーグ－ガンナー",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "風征竜－ライトニング",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "魔導サイエンティスト",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "メンタルマスター",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "八汰烏",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "レスキューキャット",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "悪夢の蜃気楼",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "いたずら好きな双子悪魔",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "大嵐",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "押収",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "苦渋の選択",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "強引な番兵",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "強奪",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "強欲な壺",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "心変わり",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "サンダー・ボルト",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "次元融合",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "生還の宝札",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "洗脳－ブレインコントロール",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "大寒波",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "蝶の短剣－エルマ",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "天使の施し",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "早すぎた埋葬",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ハリケーン",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "マスドライバー",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "魔導書の神判",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "未来融合－フューチャー・フュージョン",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "突然変異",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "遺言状",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "異次元からの帰還",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "王宮の弾圧",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "王宮の勅命",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "第六感",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ダスト・シュート",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "血の代償",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "刻の封印",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ラストバトル！",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "アーティファクト－モラルタ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "A・ジェネクス・バードマン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "イビリチュア・ガストクラーケ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "甲虫装機 ダンセル",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "エルシャドール・ネフィリム",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "エルシャドール・ミドラーシュ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "E・HERO エアーマン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "焔征竜－ブラスター",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "混沌帝龍 －終焉の使者－",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "カオス・ソルジャー －開闢の使者－",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "巌征竜－レドックス",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "キラー・スネーク",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "重爆撃禽 ボム・フェネクス",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "終末の騎士",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "召喚僧サモンプリースト",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "センジュ・ゴッド",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "発条空母ゼンマイティ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ダーク・アームド・ドラゴン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ダンディライオン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "TG ハイパー・ライブラリアン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "深淵の暗殺者",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ネクロフェイス",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "瀑征竜－タイダル",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "氷結界の龍 トリシューラ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されしエクゾディア",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "フォーミュラ・シンクロン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "光天使スローネ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "水精鱗－ディニクアビス",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "マンジュ・ゴッド",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "メタモルポット",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ユニコールの影霊衣",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "嵐征竜－テンペスト",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "レッドアイズ・ダークネスメタルドラゴン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "異次元からの埋葬",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "一時休戦",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "簡易融合",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "インフェルニティガン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "王家の神殿",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "おろかな埋葬",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "原初の種",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "儀式の準備",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "継承の印",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "死者蘇生",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "精神操作",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "増援",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ソウル・チャージ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "超再生能力",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "超融合",
+      "change": "新規・制限"
+    },
+    {
+      "category": "制限",
+      "card": "月の書",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "手札抹殺",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "貪欲な壺",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ハーピィの羽根帚",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "光の援軍",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印の黄金櫃",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ブラック・ホール",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "霞の谷の神風",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "闇の誘惑",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "リミッター解除",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "竜の渓谷",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "竜の霊廟",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "六武の門",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ワン・フォー・ワン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "堕ち影の蠢き",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "神の警告",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "神の宣告",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "現世と冥界の逆転",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "死のデッキ破壊ウイルス",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "停戦協定",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "転生の予言",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "破壊輪",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "光の護封壁",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "マジカル・エクスプロージョン",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "甲虫装機 ホーネット",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "E・HERO バブルマン",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "オネスト",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "海皇の竜騎隊",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "真六武衆－シエン",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "大天使クリスティア",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "D-HERO ディアボリックガイ",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "No.11 ビッグ・アイ",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "氷結界の虎王 ドゥローレン",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "BF－疾風のゲイル",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "馬頭鬼",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "立炎星－トウケイ",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "輪廻天狗",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "連鎖爆撃",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "魔法石の採掘",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "モンスターゲート",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "奈落の落とし穴",
+      "change": null
+    },
+    {
+      "category": "無制限",
+      "card": "ヴェルズ・オピオン",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "先史遺産ネブラ・ディスク",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "カードガンナー",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "TG ストライカー",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "トラゴエディア",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "ローンファイア・ブロッサム",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "召集の聖刻印",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "ヒーローアライブ",
+      "change": "準制限⇒解除"
+    },
+    {
+      "category": "無制限",
+      "card": "おジャマトリオ",
+      "change": "準制限⇒解除"
+    }
+  ],
+  "by_category": {
+    "禁止": [
+      {
+        "card": "イレカエル",
+        "change": null
+      },
+      {
+        "card": "ヴィクトリー・ドラゴン",
+        "change": null
+      },
+      {
+        "card": "炎征竜－バーナー",
+        "change": null
+      },
+      {
+        "card": "クリッター",
+        "change": null
+      },
+      {
+        "card": "グローアップ・バルブ",
+        "change": null
+      },
+      {
+        "card": "黒き森のウィッチ",
+        "change": null
+      },
+      {
+        "card": "ゴヨウ・ガーディアン",
+        "change": null
+      },
+      {
+        "card": "混沌の黒魔術師",
+        "change": null
+      },
+      {
+        "card": "サイバーポッド",
+        "change": null
+      },
+      {
+        "card": "サウザンド・アイズ・サクリファイス",
+        "change": null
+      },
+      {
+        "card": "処刑人－マキュラ",
+        "change": null
+      },
+      {
+        "card": "水征竜－ストリーム",
+        "change": null
+      },
+      {
+        "card": "聖なる魔術師",
+        "change": null
+      },
+      {
+        "card": "ゼンマイハンター",
+        "change": null
+      },
+      {
+        "card": "地征竜－リアクタン",
+        "change": null
+      },
+      {
+        "card": "D-HERO ディスクガイ",
+        "change": null
+      },
+      {
+        "card": "同族感染ウィルス",
+        "change": null
+      },
+      {
+        "card": "氷結界の龍 ブリューナク",
+        "change": null
+      },
+      {
+        "card": "ファイバーポッド",
+        "change": null
+      },
+      {
+        "card": "フィッシュボーグ－ガンナー",
+        "change": null
+      },
+      {
+        "card": "風征竜－ライトニング",
+        "change": null
+      },
+      {
+        "card": "魔導サイエンティスト",
+        "change": null
+      },
+      {
+        "card": "メンタルマスター",
+        "change": null
+      },
+      {
+        "card": "八汰烏",
+        "change": null
+      },
+      {
+        "card": "レスキューキャット",
+        "change": null
+      },
+      {
+        "card": "悪夢の蜃気楼",
+        "change": null
+      },
+      {
+        "card": "いたずら好きな双子悪魔",
+        "change": null
+      },
+      {
+        "card": "大嵐",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "押収",
+        "change": null
+      },
+      {
+        "card": "苦渋の選択",
+        "change": null
+      },
+      {
+        "card": "強引な番兵",
+        "change": null
+      },
+      {
+        "card": "強奪",
+        "change": null
+      },
+      {
+        "card": "強欲な壺",
+        "change": null
+      },
+      {
+        "card": "心変わり",
+        "change": null
+      },
+      {
+        "card": "サンダー・ボルト",
+        "change": null
+      },
+      {
+        "card": "次元融合",
+        "change": null
+      },
+      {
+        "card": "生還の宝札",
+        "change": null
+      },
+      {
+        "card": "洗脳－ブレインコントロール",
+        "change": null
+      },
+      {
+        "card": "大寒波",
+        "change": null
+      },
+      {
+        "card": "蝶の短剣－エルマ",
+        "change": null
+      },
+      {
+        "card": "天使の施し",
+        "change": null
+      },
+      {
+        "card": "早すぎた埋葬",
+        "change": null
+      },
+      {
+        "card": "ハリケーン",
+        "change": null
+      },
+      {
+        "card": "マスドライバー",
+        "change": null
+      },
+      {
+        "card": "魔導書の神判",
+        "change": null
+      },
+      {
+        "card": "未来融合－フューチャー・フュージョン",
+        "change": null
+      },
+      {
+        "card": "突然変異",
+        "change": null
+      },
+      {
+        "card": "遺言状",
+        "change": null
+      },
+      {
+        "card": "異次元からの帰還",
+        "change": null
+      },
+      {
+        "card": "王宮の弾圧",
+        "change": null
+      },
+      {
+        "card": "王宮の勅命",
+        "change": null
+      },
+      {
+        "card": "第六感",
+        "change": null
+      },
+      {
+        "card": "ダスト・シュート",
+        "change": null
+      },
+      {
+        "card": "血の代償",
+        "change": null
+      },
+      {
+        "card": "刻の封印",
+        "change": null
+      },
+      {
+        "card": "ラストバトル！",
+        "change": null
+      }
+    ],
+    "制限": [
+      {
+        "card": "アーティファクト－モラルタ",
+        "change": null
+      },
+      {
+        "card": "A・ジェネクス・バードマン",
+        "change": null
+      },
+      {
+        "card": "イビリチュア・ガストクラーケ",
+        "change": null
+      },
+      {
+        "card": "甲虫装機 ダンセル",
+        "change": null
+      },
+      {
+        "card": "エルシャドール・ネフィリム",
+        "change": null
+      },
+      {
+        "card": "エルシャドール・ミドラーシュ",
+        "change": null
+      },
+      {
+        "card": "E・HERO エアーマン",
+        "change": null
+      },
+      {
+        "card": "焔征竜－ブラスター",
+        "change": null
+      },
+      {
+        "card": "混沌帝龍 －終焉の使者－",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "カオス・ソルジャー －開闢の使者－",
+        "change": null
+      },
+      {
+        "card": "巌征竜－レドックス",
+        "change": null
+      },
+      {
+        "card": "キラー・スネーク",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "重爆撃禽 ボム・フェネクス",
+        "change": "新規・制限"
+      },
+      {
+        "card": "終末の騎士",
+        "change": null
+      },
+      {
+        "card": "召喚僧サモンプリースト",
+        "change": null
+      },
+      {
+        "card": "センジュ・ゴッド",
+        "change": "新規・制限"
+      },
+      {
+        "card": "発条空母ゼンマイティ",
+        "change": null
+      },
+      {
+        "card": "ダーク・アームド・ドラゴン",
+        "change": null
+      },
+      {
+        "card": "ダンディライオン",
+        "change": null
+      },
+      {
+        "card": "TG ハイパー・ライブラリアン",
+        "change": null
+      },
+      {
+        "card": "深淵の暗殺者",
+        "change": null
+      },
+      {
+        "card": "ネクロフェイス",
+        "change": null
+      },
+      {
+        "card": "瀑征竜－タイダル",
+        "change": null
+      },
+      {
+        "card": "氷結界の龍 トリシューラ",
+        "change": null
+      },
+      {
+        "card": "封印されしエクゾディア",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右腕",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左腕",
+        "change": null
+      },
+      {
+        "card": "フォーミュラ・シンクロン",
+        "change": null
+      },
+      {
+        "card": "光天使スローネ",
+        "change": null
+      },
+      {
+        "card": "水精鱗－ディニクアビス",
+        "change": null
+      },
+      {
+        "card": "マンジュ・ゴッド",
+        "change": "新規・制限"
+      },
+      {
+        "card": "メタモルポット",
+        "change": null
+      },
+      {
+        "card": "ユニコールの影霊衣",
+        "change": "新規・制限"
+      },
+      {
+        "card": "嵐征竜－テンペスト",
+        "change": null
+      },
+      {
+        "card": "レッドアイズ・ダークネスメタルドラゴン",
+        "change": null
+      },
+      {
+        "card": "異次元からの埋葬",
+        "change": null
+      },
+      {
+        "card": "一時休戦",
+        "change": null
+      },
+      {
+        "card": "簡易融合",
+        "change": "新規・制限"
+      },
+      {
+        "card": "インフェルニティガン",
+        "change": null
+      },
+      {
+        "card": "王家の神殿",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "おろかな埋葬",
+        "change": null
+      },
+      {
+        "card": "原初の種",
+        "change": null
+      },
+      {
+        "card": "儀式の準備",
+        "change": "新規・制限"
+      },
+      {
+        "card": "継承の印",
+        "change": "新規・制限"
+      },
+      {
+        "card": "死者蘇生",
+        "change": null
+      },
+      {
+        "card": "精神操作",
+        "change": null
+      },
+      {
+        "card": "増援",
+        "change": null
+      },
+      {
+        "card": "ソウル・チャージ",
+        "change": null
+      },
+      {
+        "card": "超再生能力",
+        "change": null
+      },
+      {
+        "card": "超融合",
+        "change": "新規・制限"
+      },
+      {
+        "card": "月の書",
+        "change": null
+      },
+      {
+        "card": "手札抹殺",
+        "change": null
+      },
+      {
+        "card": "貪欲な壺",
+        "change": null
+      },
+      {
+        "card": "ハーピィの羽根帚",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "光の援軍",
+        "change": null
+      },
+      {
+        "card": "封印の黄金櫃",
+        "change": null
+      },
+      {
+        "card": "ブラック・ホール",
+        "change": null
+      },
+      {
+        "card": "霞の谷の神風",
+        "change": null
+      },
+      {
+        "card": "闇の誘惑",
+        "change": null
+      },
+      {
+        "card": "リミッター解除",
+        "change": null
+      },
+      {
+        "card": "竜の渓谷",
+        "change": null
+      },
+      {
+        "card": "竜の霊廟",
+        "change": null
+      },
+      {
+        "card": "六武の門",
+        "change": null
+      },
+      {
+        "card": "ワン・フォー・ワン",
+        "change": null
+      },
+      {
+        "card": "堕ち影の蠢き",
+        "change": null
+      },
+      {
+        "card": "神の警告",
+        "change": null
+      },
+      {
+        "card": "神の宣告",
+        "change": null
+      },
+      {
+        "card": "現世と冥界の逆転",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "死のデッキ破壊ウイルス",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "停戦協定",
+        "change": null
+      },
+      {
+        "card": "転生の予言",
+        "change": null
+      },
+      {
+        "card": "破壊輪",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "光の護封壁",
+        "change": null
+      },
+      {
+        "card": "マジカル・エクスプロージョン",
+        "change": null
+      }
+    ],
+    "準制限": [
+      {
+        "card": "甲虫装機 ホーネット",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "E・HERO バブルマン",
+        "change": null
+      },
+      {
+        "card": "オネスト",
+        "change": null
+      },
+      {
+        "card": "海皇の竜騎隊",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "真六武衆－シエン",
+        "change": null
+      },
+      {
+        "card": "大天使クリスティア",
+        "change": null
+      },
+      {
+        "card": "D-HERO ディアボリックガイ",
+        "change": null
+      },
+      {
+        "card": "No.11 ビッグ・アイ",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "氷結界の虎王 ドゥローレン",
+        "change": null
+      },
+      {
+        "card": "BF－疾風のゲイル",
+        "change": null
+      },
+      {
+        "card": "馬頭鬼",
+        "change": null
+      },
+      {
+        "card": "立炎星－トウケイ",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "輪廻天狗",
+        "change": null
+      },
+      {
+        "card": "連鎖爆撃",
+        "change": null
+      },
+      {
+        "card": "魔法石の採掘",
+        "change": null
+      },
+      {
+        "card": "モンスターゲート",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "奈落の落とし穴",
+        "change": null
+      }
+    ],
+    "無制限": [
+      {
+        "card": "ヴェルズ・オピオン",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "先史遺産ネブラ・ディスク",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "カードガンナー",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "TG ストライカー",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "トラゴエディア",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "ローンファイア・ブロッサム",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "召集の聖刻印",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "ヒーローアライブ",
+        "change": "準制限⇒解除"
+      },
+      {
+        "card": "おジャマトリオ",
+        "change": "準制限⇒解除"
+      }
+    ]
+  },
+  "counts": {
+    "禁止": 56,
+    "制限": 76,
+    "準制限": 17,
+    "無制限": 9
+  }
+}

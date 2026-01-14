@@ -1,0 +1,363 @@
+{
+  "round": "0101",
+  "effective_date": "2001-01-15",
+  "items": [
+    {
+      "category": "制限",
+      "card": "カオスポッド",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "キラー・スネーク",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "サイバーポッド",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "人造人間－サイコ・ショッカー",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されしエクゾディア",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "押収",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "巨大化",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "苦渋の選択",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "強引な番兵",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "強奪",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "強欲な壺",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "心変わり",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "サンダー・ボルト",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "死者蘇生",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ハーピィの羽根帚",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ブラック・ホール",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "リミッター解除",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "王宮の勅命",
+      "change": "準制限⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "聖なるバリア －ミラーフォース－",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "停戦協定",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "補充要員",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "魔法の筒",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "リビングデッドの呼び声",
+      "change": "新規・追加"
+    },
+    {
+      "category": "準制限",
+      "card": "クリッター",
+      "change": "新規・追加"
+    },
+    {
+      "category": "準制限",
+      "card": "黒き森のウィッチ",
+      "change": "新規・追加"
+    },
+    {
+      "category": "準制限",
+      "card": "いたずら好きな双子悪魔",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "大嵐",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "天使の施し",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "光の護封剣",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "フォース",
+      "change": "新規・追加"
+    },
+    {
+      "category": "準制限",
+      "card": "抹殺の使徒",
+      "change": "新規・追加"
+    },
+    {
+      "category": "準制限",
+      "card": "遺言状",
+      "change": "制限⇒準制限"
+    },
+    {
+      "category": "準制限",
+      "card": "破壊輪",
+      "change": "新規・追加"
+    },
+    {
+      "category": "無制限",
+      "card": "墓守の使い魔",
+      "change": "準制限⇒解除"
+    }
+  ],
+  "by_category": {
+    "禁止": [],
+    "制限": [
+      {
+        "card": "カオスポッド",
+        "change": null
+      },
+      {
+        "card": "キラー・スネーク",
+        "change": null
+      },
+      {
+        "card": "サイバーポッド",
+        "change": null
+      },
+      {
+        "card": "人造人間－サイコ・ショッカー",
+        "change": null
+      },
+      {
+        "card": "封印されしエクゾディア",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左腕",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右腕",
+        "change": null
+      },
+      {
+        "card": "押収",
+        "change": null
+      },
+      {
+        "card": "巨大化",
+        "change": null
+      },
+      {
+        "card": "苦渋の選択",
+        "change": "新規・追加"
+      },
+      {
+        "card": "強引な番兵",
+        "change": null
+      },
+      {
+        "card": "強奪",
+        "change": null
+      },
+      {
+        "card": "強欲な壺",
+        "change": null
+      },
+      {
+        "card": "心変わり",
+        "change": null
+      },
+      {
+        "card": "サンダー・ボルト",
+        "change": null
+      },
+      {
+        "card": "死者蘇生",
+        "change": null
+      },
+      {
+        "card": "ハーピィの羽根帚",
+        "change": null
+      },
+      {
+        "card": "ブラック・ホール",
+        "change": null
+      },
+      {
+        "card": "リミッター解除",
+        "change": "新規・追加"
+      },
+      {
+        "card": "王宮の勅命",
+        "change": "準制限⇒制限"
+      },
+      {
+        "card": "聖なるバリア －ミラーフォース－",
+        "change": null
+      },
+      {
+        "card": "停戦協定",
+        "change": "新規・追加"
+      },
+      {
+        "card": "補充要員",
+        "change": "新規・追加"
+      },
+      {
+        "card": "魔法の筒",
+        "change": "新規・追加"
+      },
+      {
+        "card": "リビングデッドの呼び声",
+        "change": "新規・追加"
+      }
+    ],
+    "準制限": [
+      {
+        "card": "クリッター",
+        "change": "新規・追加"
+      },
+      {
+        "card": "黒き森のウィッチ",
+        "change": "新規・追加"
+      },
+      {
+        "card": "いたずら好きな双子悪魔",
+        "change": null
+      },
+      {
+        "card": "大嵐",
+        "change": null
+      },
+      {
+        "card": "天使の施し",
+        "change": null
+      },
+      {
+        "card": "光の護封剣",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "フォース",
+        "change": "新規・追加"
+      },
+      {
+        "card": "抹殺の使徒",
+        "change": "新規・追加"
+      },
+      {
+        "card": "遺言状",
+        "change": "制限⇒準制限"
+      },
+      {
+        "card": "破壊輪",
+        "change": "新規・追加"
+      }
+    ],
+    "無制限": [
+      {
+        "card": "墓守の使い魔",
+        "change": "準制限⇒解除"
+      }
+    ]
+  },
+  "counts": {
+    "禁止": 0,
+    "制限": 27,
+    "準制限": 10,
+    "無制限": 1
+  }
+}

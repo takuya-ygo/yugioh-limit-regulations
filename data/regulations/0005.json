@@ -1,0 +1,165 @@
+{
+  "round": "0005",
+  "effective_date": "2000-05-15",
+  "items": [
+    {
+      "category": "制限",
+      "card": "封印されしエクゾディア",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "強欲な壺",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "心変わり",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "サンダー・ボルト",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ハーピィの羽根帚",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ブラック・ホール",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "遺言状",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "聖なるバリア －ミラーフォース－",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "強奪",
+      "change": "新規・追加"
+    },
+    {
+      "category": "準制限",
+      "card": "死者蘇生",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "天使の施し",
+      "change": null
+    },
+    {
+      "category": "無制限",
+      "card": "落とし穴",
+      "change": "制限⇒解除"
+    }
+  ],
+  "by_category": {
+    "禁止": [],
+    "制限": [
+      {
+        "card": "封印されしエクゾディア",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左腕",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右腕",
+        "change": null
+      },
+      {
+        "card": "強欲な壺",
+        "change": null
+      },
+      {
+        "card": "心変わり",
+        "change": null
+      },
+      {
+        "card": "サンダー・ボルト",
+        "change": null
+      },
+      {
+        "card": "ハーピィの羽根帚",
+        "change": null
+      },
+      {
+        "card": "ブラック・ホール",
+        "change": null
+      },
+      {
+        "card": "遺言状",
+        "change": null
+      },
+      {
+        "card": "聖なるバリア －ミラーフォース－",
+        "change": null
+      }
+    ],
+    "準制限": [
+      {
+        "card": "強奪",
+        "change": "新規・追加"
+      },
+      {
+        "card": "死者蘇生",
+        "change": null
+      },
+      {
+        "card": "天使の施し",
+        "change": null
+      }
+    ],
+    "無制限": [
+      {
+        "card": "落とし穴",
+        "change": "制限⇒解除"
+      }
+    ]
+  },
+  "counts": {
+    "禁止": 0,
+    "制限": 12,
+    "準制限": 3,
+    "無制限": 1
+  }
+}

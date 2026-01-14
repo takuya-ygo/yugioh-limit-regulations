@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>遊戯王OCG｜リミットレギュレーションチャート</title>
+<style>
+:root{
+  --forbidden:#d32f2f; --limited:#f57c00; --semi:#fbc02d; --unlimited:#388e3c; --na:#9e9e9e;
+  --bg:#0b0f14; --panel:#111827; --text:#e5e7eb; --muted:#9ca3af; --border:#243041; --rowh:24px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans JP",sans-serif}
+
+header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.container{max-width:1700px;margin:0 auto;padding:12px 16px}
+h1{font-size:18px;margin:0 0 8px 0}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type="search"]{flex:1;min-width:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)}
+select,button{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text);cursor:pointer}
+button:hover{filter:brightness(1.08)}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:12px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.progress{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* Layout: chart + round panel (always visible) */
+.main{
+  display:grid;
+  gap:12px;
+  max-width:1700px;
+  margin:0 auto;
+  padding:12px 16px;
+  grid-template-columns: 1fr 320px;
+}
+
+@media (max-width: 1100px){
+  .main{grid-template-columns:1fr}
+}
+
+.tableWrap{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:rgba(17,24,39,.35)}
+/* ✅ ヘッダは tableHeader に統合、axisRow は年目盛りだけにする */
+.tableHeader{display:grid;grid-template-columns: 260px 120px 1fr;border-bottom:1px solid var(--border);background:rgba(17,24,39,.8)}
+.th{padding:10px 12px;font-size:12px;color:var(--muted)}
+.sliderRow{display:grid;grid-template-columns: 260px 120px 1fr;position:relative;border-bottom:1px solid var(--border);background:rgba(17,24,39,.6);height:30px}
+.sliderContainer{position:relative;height:100%;margin:0 10px}
+.sliderHandle{position:absolute;top:50%;transform:translate(-50%, -50%);width:12px;height:20px;background:var(--text);border:2px solid var(--border);border-radius:6px;cursor:grab;z-index:10;box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.sliderHandle:active{cursor:grabbing}
+.sliderTick{position:absolute;top:0;bottom:0;width:1px;background:rgba(156,163,175,.4);z-index:5;transform:translateX(-50%);pointer-events:none}
+.rows{max-height:72vh;overflow:auto;scrollbar-gutter:stable;position:relative}
+.row .timeline{position:relative}
+.row .timeline .dateLine{position:absolute;top:0;bottom:0;width:2px;background:var(--text);opacity:0.6;z-index:10;transform:translateX(-50%);pointer-events:none}
+.axisRow{position:sticky;top:0;z-index:6;background:rgba(11,15,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.axisRow .axisLabels{margin:0 10px;height:22px;position:relative}
+.row{display:grid;grid-template-columns: 260px 120px 1fr;align-items:center;border-bottom:1px solid rgba(36,48,65,.65)}
+.row:hover{background:rgba(255,255,255,.03)}
+.rowDetail{display:none;grid-column:1/-1;padding:16px;background:rgba(17,24,39,.4);border-top:1px solid rgba(36,48,65,.65);grid-template-columns:1fr 1fr;gap:20px}
+.rowDetail.open{display:grid}
+.rowDetail .kv{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;font-size:12px;margin-bottom:10px}
+.rowDetail .kv div:nth-child(odd){color:var(--muted)}
+.rowDetail .detailLeft{display:flex;flex-direction:column}
+.rowDetail .detailRight{display:flex;flex-direction:column}
+
+.nameCell{padding:6px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nameBtn{all:unset;cursor:pointer;max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nameBtn:hover{text-decoration:underline}
+.debutCell{padding:6px 10px;color:var(--muted);font-size:12px;white-space:nowrap}
+
+.timeline{position:relative;height:var(--rowh);margin:6px 10px;border-radius:8px;outline:1px solid rgba(36,48,65,.6);background:rgba(0,0,0,.15);overflow:hidden}
+.seg{position:absolute;top:0;bottom:0}
+.seg:hover{filter:brightness(1.12);outline:1px solid rgba(255,255,255,.25)}
+.seg.sel{outline:2px solid rgba(255,255,255,.5)}
+.tick{position:absolute;top:0;bottom:0;width:1px;background:rgba(156,163,175,.25)}
+.tickLabel{position:absolute;top:0;transform:translateX(-50%);font-size:10px;color:var(--muted);white-space:nowrap}
+
+.panel{
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:rgba(17,24,39,.55);
+  padding:10px;
+  position:sticky; top:84px;
+  height:fit-content;
+}
+.panelHeader{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:8px;
+  padding:2px 2px 8px 2px;
+}
+.panel h2{margin:0;font-size:16px}
+.iconBtn{
+  border:1px solid rgba(36,48,65,.9);
+  background:rgba(17,24,39,.65);
+  color:var(--muted);
+  border-radius:10px;
+  padding:6px 10px;
+  font-size:12px;
+  cursor:pointer;
+}
+.iconBtn:hover{filter:brightness(1.08)}
+.sub{color:var(--muted);font-size:12px;margin:6px 0 10px 0}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;font-size:12px;margin-bottom:10px}
+.kv div:nth-child(odd){color:var(--muted)}
+
+.small{font-size:12px;color:var(--muted)}
+.list{max-height:52vh;overflow:auto;border-top:1px solid rgba(36,48,65,.65);padding-top:10px}
+#regBody{max-height:52vh;overflow:auto;border-top:1px solid rgba(36,48,65,.65);padding-top:10px}
+.item{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px dashed rgba(36,48,65,.65);cursor:pointer}
+.item:hover{background:rgba(255,255,255,.03)}
+.badge{width:10px;height:10px;border-radius:3px;flex:0 0 auto}
+.item .t{font-size:12px}
+.item .d{font-size:11px;color:var(--muted)}
+
+.block{margin-top:10px;border-top:1px solid rgba(36,48,65,.65);padding-top:10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 2px 0}
+.pill{font-size:12px;color:var(--text);text-decoration:none;border:1px solid rgba(36,48,65,.9);background:rgba(17,24,39,.65);padding:6px 10px;border-radius:999px}
+.pill:hover{filter:brightness(1.08)}
+.sectionTitle{font-size:12px;color:var(--muted);margin:10px 0 6px 0}
+.err{color:#ffb4b4;font-size:12px;margin-top:8px}
+
+.hidden{display:none !important}
+
+.footer{max-width:1700px;margin:0 auto;padding:0 16px 18px 16px;color:var(--muted);font-size:12px}
+code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
+</style>
+</head>
+<body class="cardClosed roundClosed">
+<header>
+  <div class="container">
+    <h1>遊戯王OCG｜リミットレギュレーションチャート</h1>
+    <div class="controls">
+      <input id="q" type="search" placeholder="カード名で検索">
+      <select id="filter">
+        <option value="">絞り込み：なし</option>
+        <option value="0">絞り込み：禁止履歴あり</option>
+        <option value="1">絞り込み：制限履歴あり</option>
+        <option value="2">絞り込み：準制限履歴あり</option>
+      </select>
+      <select id="sort">
+        <option value="debut">並び：初登場日</option>
+        <option value="name">並び：カード名</option>
+        <option value="changes">並び：変化回数（多い順）</option>
+        <option value="firstReg">並び：初規制まで</option>
+      </select>
+      <select id="zoom">
+        <option value="1">表示倍率：1x</option>
+        <option value="1.5">表示倍率：1.5x</option>
+        <option value="2">表示倍率：2x</option>
+        <option value="3">表示倍率：3x</option>
+      </select>
+    </div>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--forbidden)"></i>禁止(0)</span>
+      <span><i class="sw" style="background:var(--limited)"></i>制限(1)</span>
+      <span><i class="sw" style="background:var(--semi)"></i>準制限(2)</span>
+      <span><i class="sw" style="background:var(--unlimited)"></i>無制限(3)</span>
+      <span><i class="sw" style="background:var(--na)"></i>未登場/対象外(-)</span>
+    </div>
+    <div class="progress" id="progress">データ読み込み中...</div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="tableWrap" id="chartWrap">
+    <div class="tableHeader">
+      <div class="th">カード名（クリックで詳細）</div>
+      <div class="th">初登場日</div>
+      <div class="th">チャート</div>
+    </div>
+    <div class="sliderRow" id="sliderRow">
+      <div class="th"></div>
+      <div class="th"></div>
+      <div class="sliderContainer" id="sliderContainer">
+        <div class="sliderHandle" id="sliderHandle"></div>
+      </div>
+    </div>
+    <div class="rows" id="rows">
+      <div class="row axisRow">
+        <div class="th"></div>
+        <div class="th"></div>
+        <div class="axisLabels" id="axis"></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="panel" id="roundPanel">
+    <div class="panelHeader">
+      <h2 id="rTitle">回をクリック</h2>
+    </div>
+    <div class="sub" id="rSub">カード履歴の行やバーをクリックすると、このエリアにその回のレギュレーションが表示されます。</div>
+    <div id="regMeta" class="sub"></div>
+    <div id="regEvents" class="sub" style="display:none;">
+      <div style="cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px;" id="eventsToggle">
+        <span>この期間の主な出来事</span>
+        <span id="eventsToggleIcon">▼</span>
+      </div>
+      <div id="eventsContent" style="display:none;margin-top:8px;padding-left:12px;"></div>
+    </div>
+    <div id="regBody"></div>
+    <div id="regErr" class="err"></div>
+  </aside>
+</div>
+
+<div class="footer">
+  <div>
+    過去のリミットレギュレーションで一度でも規制されたことのあるカードが対象。
+    <!-- メンテ方針：<code>data/regulations/第N回.json</code> を追加し、<code>data/regulations/index.json</code> に追記するだけでOK。<br>
+    初登場日は <code>data/index.json</code>（card_debut）で管理します（履歴一覧シート由来）。 -->
+  </div>
+</div>
+
+<script>
+let LINKS = {};
+let CARD_INDEX = { card_debut: {} };
+let DEBUT_BY_KEY = new Map();
+let REG_INDEX = null;
+const REG_CACHE = new Map();
+let EVENTS = [];
+
+let rounds = [];
+let dateStrs = [];
+let dates = [];
+let cards = [];
+let minDate=null, maxDate=null, totalDays=1;
+
+let selected = { cardIndex:null, atIndex:null };
+let sliderPosition = null; // 0-1の範囲でツマミの位置を保持
+let sliderDate = null; // ツマミが指す日付
+let expandedCardIndex = null; // 現在展開されているカードのインデックス
+
+const stateLabel = (v) => (v===0?"禁止":v===1?"制限":v===2?"準制限":v===3?"無制限":"未登場/対象外");
+const stateColorVar = (v) => (v===0?"var(--forbidden)":v===1?"var(--limited)":v===2?"var(--semi)":v===3?"var(--unlimited)":"var(--na)");
+const parseDate = (s) => { const d=new Date(String(s)+"T00:00:00"); return isNaN(d)?null:d; };
+const toISO = (d) => {
+  if(!d) return "";
+  const y=d.getFullYear();
+  const m=String(d.getMonth()+1).padStart(2,"0");
+  const da=String(d.getDate()).padStart(2,"0");
+  return `${y}-${m}-${da}`;
+};
+
+// ✅ 名前ゆらぎ対策（例：ハイフン/ダッシュ/全角半角/余計な空白）
+const canon = (s) => {
+  if(!s) return "";
+  let t = String(s).trim();
+  // Unicode正規化（全角半角など）
+  if(t.normalize) t = t.normalize("NFKC");
+  // ハイフン/ダッシュ類を "－" に寄せる（見た目を揃えるため）
+  t = t.replace(/[‐‑‒–—―−ー－]/g, "－");
+  // スペースを統一（全角空白→半角、連続空白を1つ）
+  t = t.replace(/[\u3000]/g, " ").replace(/\s+/g, " ").trim();
+  return t;
+};
+
+
+
+const MS_DAY=24*60*60*1000;
+const daysBetween = (a,b) => (b-a)/MS_DAY;
+const computeChangeCount = (states) => {
+  // 登場後の状態変化のみをカウント（登場前の"-"から状態への変化は除外）
+  let cnt=0;
+  let firstValidIndex = -1;
+  // 最初の有効な状態（"-"以外）を見つける
+  for(let i=0;i<states.length;i++){
+    if(states[i] !== "-" && states[i] !== null && states[i] !== undefined){
+      firstValidIndex = i;
+      break;
+    }
+  }
+  // 登場後の状態変化をカウント
+  if(firstValidIndex >= 0){
+    for(let i=firstValidIndex+1;i<states.length;i++){
+      if(states[i] !== states[i-1]) cnt++;
+    }
+  }
+  return cnt;
+};
+
+const computeRegulationPeriods = (states, debutStr) => {
+  // 準制限以上（0=禁止、1=制限、2=準制限）の期間を計算
+  const segments = buildSegments(states, debutStr);
+  const days = { total: 0, forbidden: 0, limited: 0, semi: 0 };
+  
+  for(const seg of segments){
+    const state = seg.v;
+    // 準制限以上のみカウント（0=禁止、1=制限、2=準制限）
+    if(state === 0 || state === 1 || state === 2){
+      const segDays = Math.max(0, daysBetween(seg.start, seg.end));
+      days.total += segDays;
+      if(state === 0) days.forbidden += segDays;
+      else if(state === 1) days.limited += segDays;
+      else if(state === 2) days.semi += segDays;
+    }
+  }
+  
+  return days;
+};
+
+const formatPeriod = (days) => {
+  const years = (days / 365.25).toFixed(1);
+  return `${Math.round(days)}日（約${years}年）`;
+};
+
+const getDebut = (name, fallback=null) => {
+  const k = canon(name);
+  return (DEBUT_BY_KEY && DEBUT_BY_KEY.has(k)) ? DEBUT_BY_KEY.get(k) : fallback;
+};
+
+// setPanels関数は削除（不要になった）
+
+async function fetchJSON(path){
+  const res = await fetch(path, { cache: "no-cache" });
+  if(!res.ok) throw new Error(`${path} ${res.status}`);
+  return await res.json();
+}
+
+async function loadLinks(){
+  try{
+    const l = await fetchJSON("data/links.json");
+    LINKS = (l && typeof l === "object") ? l : {};
+    delete LINKS["_howto"]; delete LINKS["例"];
+  }catch(e){
+    LINKS = {};
+  }
+}
+async function loadCardIndex(){
+  try{
+    CARD_INDEX = await fetchJSON("data/index.json");
+    if(!CARD_INDEX || typeof CARD_INDEX !== "object") CARD_INDEX = { card_debut:{} };
+    DEBUT_BY_KEY = new Map();
+    if(!CARD_INDEX.card_debut) CARD_INDEX.card_debut = {};
+    // build canonical debut map
+    DEBUT_BY_KEY = new Map();
+    for(const [nm, d] of Object.entries(CARD_INDEX.card_debut || {})){
+      if(!d) continue;
+      DEBUT_BY_KEY.set(canon(nm), d);
+    }
+  }catch(e){
+    CARD_INDEX = { card_debut:{} };
+  }
+}
+async function loadEvents(){
+  try{
+    const e = await fetchJSON("data/events.json");
+    EVENTS = (Array.isArray(e)) ? e : [];
+  }catch(e){
+    EVENTS = [];
+  }
+}
+
+async function loadRegIndex(){
+  if(REG_INDEX) return REG_INDEX;
+  REG_INDEX = await fetchJSON("data/regulations/index.json");
+  REG_INDEX.sort((a,b)=>{
+    // 施行日でソート（YYMM形式にも対応）
+    const da = a.effective_date || "";
+    const db = b.effective_date || "";
+    if(da && db) return da.localeCompare(db);
+    if(da) return -1;
+    if(db) return 1;
+    // 施行日がない場合、round名でソート（フォールバック）
+    const na=parseInt(String(a.round).replace(/\D/g,""),10);
+    const nb=parseInt(String(b.round).replace(/\D/g,""),10);
+    return na-nb;
+  });
+  return REG_INDEX;
+}
+async function loadReg(roundName){
+  if(REG_CACHE.has(roundName)) return REG_CACHE.get(roundName);
+  const idx = await loadRegIndex();
+  const hit = idx.find(x=>x.round===roundName);
+  if(!hit) return null;
+  const data = await fetchJSON(hit.file);
+  REG_CACHE.set(roundName, data);
+  return data;
+}
+
+/**
+ * ✅ チャート状態ルール（要望反映）
+ * - 施行日時点で未登場 → "-"
+ * - 施行日時点で登場済み＆第N回.jsonに記載がない → 無制限(3)
+ * - 第N回.jsonに記載があれば、その区分（禁止/制限/準制限/無制限）を採用
+ *
+ * つまり第N回.jsonは「その回の一覧（その時点の区分）」として扱います。
+ */
+
+function buildCardStatesFromRounds(regs){
+  const statusMap = { "禁止":0, "制限":1, "準制限":2, "無制限":3 };
+  const roundCount = regs.length;
+
+  rounds = regs.map(r => r.round);
+  dateStrs = regs.map(r => r.effective_date || null);
+  dates = dateStrs.map(parseDate);
+
+  const firstValid = dates.find(Boolean);
+  const lastValid = [...dates].reverse().find(Boolean);
+  if(firstValid && lastValid){
+    minDate = firstValid;
+    // ✅ 右端は「最新施行日から起算して翌々月末」
+    // 例：最新施行日=2026-04-02 → 2026-06-30
+    maxDate = new Date(lastValid.getFullYear(), lastValid.getMonth() + 3, 0);
+    totalDays = Math.max(1, daysBetween(minDate, maxDate));
+  }else{
+    minDate = new Date("2000-01-01T00:00:00");
+    maxDate = new Date(minDate.getTime() + (roundCount+1)*90*MS_DAY);
+    totalDays = daysBetween(minDate, maxDate);
+    dates = regs.map((_,i)=> new Date(minDate.getTime() + i*90*MS_DAY));
+  }
+
+  // ✅ canonical -> displayName（まず index.json の表記を優先）
+  const displayByKey = new Map();
+  const debutByKey = new Map();
+
+  for(const [nm, d] of Object.entries(CARD_INDEX.card_debut || {})){
+    const k = canon(nm);
+    if(!displayByKey.has(k)) displayByKey.set(k, nm);
+    // DEBUT_BY_KEY is already built in loadCardIndex
+    if(d) debutByKey.set(k, d);
+  }
+
+  // Collect all card names from regulations (canonicalで統合)
+  for(const reg of regs){
+    const by = reg.by_category || {};
+    for(const arr of Object.values(by)){
+      for(const it of (arr || [])){
+        if(it && it.card){
+          const raw = it.card;
+          const k = canon(raw);
+          if(!displayByKey.has(k)) displayByKey.set(k, raw);
+        }
+      }
+    }
+  }
+
+  const keys = [...displayByKey.keys()];
+
+  // Precompute debut dates by canonical key
+  const debutDate = new Map();
+  for(const k of keys){
+    const dStr = debutByKey.get(k) || null;
+    debutDate.set(k, dStr ? parseDate(dStr) : null);
+  }
+
+  // Build cards
+  const cardsOut = keys.map(k => ({
+    key: k,
+    name: displayByKey.get(k),
+    debut: debutByKey.get(k) || null,
+    states: Array(roundCount).fill("-")
+  }));
+
+  // For each round: default debuted => unlimited(3), otherwise "-"
+  for(let i=0;i<roundCount;i++){
+    const rd = dates[i];
+    for(const rec of cardsOut){
+      const dd = debutDate.get(rec.key);
+      if(dd && rd && dd <= rd) rec.states[i] = 3;
+      else rec.states[i] = "-";
+    }
+
+    // Apply explicit statuses from this round JSON (canonical match)
+    const reg = regs[i];
+    const by = reg.by_category || {};
+    for(const [cat, arr] of Object.entries(by)){
+      if(!(cat in statusMap)) continue;
+      const st = statusMap[cat];
+      for(const it of (arr || [])){
+        const raw = it.card;
+        if(!raw) continue;
+        const k = canon(raw);
+        const rec = cardsOut.find(x=>x.key===k);
+        if(!rec) continue;
+
+        // ✅ 初登場前でも規制リストに載っている場合は、その規制状態を設定
+        // これにより、灰色（未登場）から直接規制色に変化する表現になる
+        // If debut missing but listed, fallback to round date (rare)
+        if(!rec.debut && dateStrs[i]) rec.debut = dateStrs[i];
+        rec.states[i] = st;
+      }
+    }
+  }
+
+  // Fallback debut if still missing
+  for(const rec of cardsOut){
+    if(rec.debut) continue;
+    for(let i=0;i<roundCount;i++){
+      const v=rec.states[i];
+      if(v===0||v===1||v===2||v===3){ rec.debut = dateStrs[i] || null; break; }
+    }
+  }
+
+  // Strip internal key before returning
+  return cardsOut.map(({key, ...rest}) => rest);
+}
+
+
+function computeDaysToFirstReg(card){
+  const debutDate = parseDate(getDebut(card.name, card.debut) || card.debut);
+  if(!debutDate) return null;
+  
+  // 初登場日以前に規制（禁止、制限、準制限）があったかチェック
+  let hasRegulationBeforeDebut = false;
+  for(let i=0; i<card.states.length; i++){
+    const state = card.states[i];
+    if(state === 0 || state === 1 || state === 2){
+      const regDate = dates[i];
+      if(regDate && regDate < debutDate){
+        hasRegulationBeforeDebut = true;
+        break;
+      }
+    }
+  }
+  
+  if(hasRegulationBeforeDebut){
+    // 初登場日以前から規制されていた場合は0日
+    return 0;
+  }else{
+    // 初登場後の最初の規制（禁止、制限、準制限）を見つける
+    let firstRegulationDate = null;
+    for(let i=0; i<card.states.length; i++){
+      const state = card.states[i];
+      if(state === 0 || state === 1 || state === 2){
+        // この状態が初登場日以降か確認
+        const regDate = dates[i];
+        if(regDate && regDate >= debutDate){
+          firstRegulationDate = regDate;
+          break;
+        }
+      }
+    }
+    
+    if(firstRegulationDate){
+      return daysBetween(debutDate, firstRegulationDate);
+    }
+  }
+  
+  return null;
+}
+
+function sortCards(list, mode){
+  const arr=list.slice();
+  if(mode==="name") arr.sort((a,b)=>a.name.localeCompare(b.name,"ja"));
+  else if(mode==="debut") arr.sort((a,b)=>(a.debut||"9999-12-31").localeCompare(b.debut||"9999-12-31"));
+  else if(mode==="changes") arr.sort((a,b)=>computeChangeCount(b.states)-computeChangeCount(a.states));
+  else if(mode==="firstReg"){
+    arr.sort((a,b)=>{
+      const daysA = computeDaysToFirstReg(a);
+      const daysB = computeDaysToFirstReg(b);
+      // nullは最後に
+      if(daysA === null && daysB === null) return 0;
+      if(daysA === null) return 1;
+      if(daysB === null) return -1;
+      return daysA - daysB;
+    });
+  }
+  return arr;
+}
+
+function buildSegments(states, debutStr){
+  // intervals are [dates[i], dates[i+1]) ... last is [dates[last], maxDate)
+  const segs=[];
+  const debutDate = debutStr ? parseDate(debutStr) : null;
+
+  for(let i=0;i<states.length;i++){
+    const start=dates[i];
+    const end=(i<states.length-1)?dates[i+1]:maxDate;
+    if(!start || !end) continue;
+
+    const v=states[i];
+    const vv=(v===null||v===undefined||v==="-"||v==="－")?"-":v;
+
+    // ✅ 初登場前の規制状態を特別に処理
+    // 初登場日より前で規制状態（0,1,2）の場合は、表示上は未登場として扱い、初登場日で規制色に変化
+    if(debutDate && start < debutDate){
+      // 規制状態（0,1,2）の場合（無制限3は通常初登場済みの場合のみ）
+      if(vv !== "-" && (vv === 0 || vv === 1 || vv === 2)){
+        // 初登場日がこの区間の途中にある場合
+        if(debutDate < end){
+          segs.push({i,start,end:debutDate,v:"-"});
+          segs.push({i,start:debutDate,end,v:vv});
+        }else{
+          // 初登場日がこの区間より後にある場合、未登場として扱う
+          segs.push({i,start,end,v:"-"});
+        }
+        continue;
+      }
+      // 未登場("-")の場合、初登場日で無制限に変化
+      if(vv === "-" && debutDate < end){
+        segs.push({i,start,end:debutDate,v:"-"});
+        segs.push({i,start:debutDate,end,v:3});
+        continue;
+      }
+    }
+
+    segs.push({i,start,end,v:vv});
+  }
+
+  // merge adjacent segments with same state
+  const merged=[];
+  for(const s of segs){
+    const prev=merged[merged.length-1];
+    if(prev && prev.v===s.v && prev.end.getTime()===s.start.getTime()){
+      prev.end=s.end;
+      prev.i2 = s.i;
+    }else{
+      merged.push({...s, i2:s.i});
+    }
+  }
+  return merged;
+}
+
+function updateSliderPosition(percent){
+  if(percent < 0) percent = 0;
+  if(percent > 1) percent = 1;
+  sliderPosition = percent;
+  
+  // 日付を計算
+  if(minDate && maxDate){
+    const days = percent * totalDays;
+    sliderDate = new Date(minDate.getTime() + days * MS_DAY);
+    
+    // 該当するレギュレーション期間を特定
+    let targetRoundIndex = -1;
+    for(let i = 0; i < dates.length; i++){
+      if(dates[i] && sliderDate >= dates[i]){
+        if(i === dates.length - 1 || !dates[i+1] || sliderDate < dates[i+1]){
+          targetRoundIndex = i;
+          break;
+        }
+      }
+    }
+    
+    // レギュレーション詳細画面を表示
+    if(targetRoundIndex >= 0 && rounds[targetRoundIndex]){
+      loadReg(rounds[targetRoundIndex]).then(reg => {
+        renderRoundPanel(rounds[targetRoundIndex], reg, null);
+      }).catch(e => {
+        renderRoundPanel(rounds[targetRoundIndex], null, null);
+      });
+    }
+  }
+  
+  // ツマミの位置を更新
+  const handle = document.getElementById("sliderHandle");
+  if(handle){
+    const container = document.getElementById("sliderContainer");
+    if(container){
+      const containerWidth = container.offsetWidth;
+      const left = percent * containerWidth;
+      handle.style.left = `${left}px`;
+    }
+  }
+  
+  // チャートを再描画して直線を更新
+  render();
+}
+
+function renderAxis(){
+  const axis=document.getElementById("axis");
+  axis.innerHTML="";
+  const zoom=parseFloat(document.getElementById("zoom").value);
+  axis.style.transform=`scaleX(${zoom})`;
+  axis.style.transformOrigin="left center";
+  if(!minDate || !maxDate) return;
+
+  const years=new Set(dates.filter(Boolean).map(d=>d.getFullYear()));
+  const yearsArr=[...years].sort((a,b)=>a-b);
+  for(const y of yearsArr){
+    const d=new Date(y,0,1);
+    if(d<minDate||d>maxDate) continue;
+    const x=100*(daysBetween(minDate,d)/totalDays);
+    const tick=document.createElement("div"); tick.className="tick"; tick.style.left=x+"%"; axis.appendChild(tick);
+    const label=document.createElement("div"); label.className="tickLabel"; label.style.left=x+"%"; label.textContent=y; axis.appendChild(label);
+  }
+}
+
+function renderSliderTicks(){
+  const container = document.getElementById("sliderContainer");
+  if(!container || !minDate || !maxDate || !dates) return;
+  
+  // 既存の目盛りを削除
+  container.querySelectorAll(".sliderTick").forEach(el => el.remove());
+  
+  // 各レギュレーションの開始日に目盛りを追加
+  for(let i=0; i<dates.length; i++){
+    const date = dates[i];
+    if(!date) continue;
+    
+    const percent = daysBetween(minDate, date) / totalDays;
+    if(percent < 0 || percent > 1) continue;
+    
+    const tick = document.createElement("div");
+    tick.className = "sliderTick";
+    tick.style.left = `${percent * 100}%`;
+    container.appendChild(tick);
+  }
+}
+
+function render(){
+  renderAxis();
+  renderSliderTicks();
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const filterValue=document.getElementById("filter").value;
+  const mode=document.getElementById("sort").value;
+
+  let list=cards.map((c,idx)=>({...c,_idx:idx}));
+  if(q) list=list.filter(c=>c.name.toLowerCase().includes(q));
+  if(filterValue !== ""){
+    const filterState = parseInt(filterValue, 10);
+    list=list.filter(c=>c.states.includes(filterState));
+  }
+  list=sortCards(list,mode);
+
+  const rowsEl=document.getElementById("rows");
+  rowsEl.querySelectorAll(".row:not(.axisRow)").forEach(el=>el.remove());
+
+  const zoom=parseFloat(document.getElementById("zoom").value);
+
+  for(const c of list){
+    const row=document.createElement("div"); row.className="row";
+
+    const nameCell=document.createElement("div"); nameCell.className="nameCell";
+    const btn=document.createElement("button"); btn.className="nameBtn"; btn.textContent=c.name; btn.title=c.name;
+    btn.addEventListener("click", ()=>{ toggleCardDetail(c._idx); });
+    nameCell.appendChild(btn);
+
+    const debutCell=document.createElement("div");
+    debutCell.className="debutCell";
+    debutCell.textContent = getDebut(c.name, c.debut) || "";
+
+    const timeline=document.createElement("div");
+    timeline.className="timeline";
+    timeline.style.transform=`scaleX(${zoom})`;
+    timeline.style.transformOrigin="left center";
+
+    for(const s of buildSegments(c.states, c.debut)){
+      const x1=100*(daysBetween(minDate,s.start)/totalDays);
+      const x2=100*(daysBetween(minDate,s.end)/totalDays);
+      const seg=document.createElement("div");
+      seg.className="seg";
+      seg.style.left=x1+"%";
+      seg.style.width=Math.max(0.2,x2-x1)+"%";
+      seg.style.background=stateColorVar(s.v);
+
+      // ✅ ツールチップに「いつから〜いつまで」も表示
+      const fromStr = toISO(s.start);
+// endは「次の施行日」(区間終端) だが、チャート右端だけは固定期限(2026-03-31)をそのまま表示する
+const isChartRightEnd = (maxDate && s.end && s.end.getTime() === maxDate.getTime());
+let toStr;
+if(s.end.getTime() <= s.start.getTime() + 1){
+  toStr = toISO(s.start);
+}else if(isChartRightEnd){
+  // 右端は「翌々月末」固定なので、その日付をそのまま表示
+  toStr = toISO(s.end);
+}else{
+  // 通常は区間終端(次の施行日)の前日
+  toStr = toISO(new Date(s.end.getTime() - MS_DAY));
+}
+// end is next round start; show previous day
+      seg.title = `${c.name}\n状態：${stateLabel(s.v)}\n期間：${fromStr} ～ ${toStr}`;
+
+      if(selected.cardIndex===c._idx && selected.atIndex!==null && (s.i<=selected.atIndex && selected.atIndex<=s.i2)){
+        seg.classList.add("sel");
+      }
+      seg.addEventListener("click",(ev)=>{ ev.stopPropagation(); toggleCardDetail(c._idx); selectCard(c._idx, s.i); });
+      timeline.appendChild(seg);
+    }
+
+    // ツマミの直線を表示
+    if(sliderPosition !== null && minDate && maxDate){
+      const dateLine = document.createElement("div");
+      dateLine.className="dateLine";
+      dateLine.style.left = `${sliderPosition * 100}%`;
+      timeline.appendChild(dateLine);
+    }
+
+    row.appendChild(nameCell);
+    row.appendChild(debutCell);
+    row.appendChild(timeline);
+    
+    // 詳細エリアを追加
+    const detailDiv = document.createElement("div");
+    detailDiv.className = "rowDetail";
+    detailDiv.id = `cardDetail_${c._idx}`;
+    if(expandedCardIndex === c._idx){
+      detailDiv.classList.add("open");
+    }
+    row.appendChild(detailDiv);
+    
+    rowsEl.appendChild(row);
+  }
+  
+  // 展開されているカードの詳細を更新
+  if(expandedCardIndex !== null){
+    const detailDiv = document.getElementById(`cardDetail_${expandedCardIndex}`);
+    if(detailDiv){
+      renderCardDetail(expandedCardIndex, detailDiv);
+    }
+  }
+}
+
+function renderRoundPanel(roundName, regData, highlightCard=null){
+  const rTitle=document.getElementById("rTitle");
+  const rSub=document.getElementById("rSub");
+  const meta=document.getElementById("regMeta");
+  const eventsEl=document.getElementById("regEvents");
+  const eventsContent=document.getElementById("eventsContent");
+  const eventsToggleIcon=document.getElementById("eventsToggleIcon");
+  const body=document.getElementById("regBody");
+  const err=document.getElementById("regErr");
+  err.textContent=""; body.innerHTML="";
+  eventsEl.style.display="none";
+  eventsContent.style.display="none";
+  eventsContent.innerHTML="";
+  if(!roundName){
+    rTitle.textContent="回をクリック";
+    rSub.textContent="カード履歴の行やバーをクリックすると、このエリアにその回のレギュレーションが表示されます。";
+    meta.textContent="";
+    return;
+  }
+  rTitle.textContent = roundName;
+  rSub.textContent = highlightCard ? `選択カード：${highlightCard}` : "";
+  if(!regData){ meta.textContent="この回のJSONが見つかりません。"; return; }
+  
+  // 施行期間を計算
+  const startDate = regData.effective_date || null;
+  let endDate = null;
+  let startDateObj = null;
+  let endDateObj = null;
+  
+  if(startDate && rounds && dates){
+    const currentIndex = rounds.findIndex(r => r === roundName);
+    if(currentIndex >= 0){
+      if(currentIndex < rounds.length - 1){
+        // 次のレギュレーションの前日
+        const nextDate = dates[currentIndex + 1];
+        if(nextDate){
+          endDate = new Date(nextDate.getTime() - MS_DAY);
+        }
+      }else{
+        // 最新のレギュレーション：開始日の翌々月末
+        const start = parseDate(startDate);
+        if(start){
+          endDate = new Date(start.getFullYear(), start.getMonth() + 3, 0);
+        }
+      }
+    }
+  }
+  
+  if(startDate && endDate){
+    startDateObj = parseDate(startDate);
+    endDateObj = endDate;
+    meta.textContent = `施行期間：${toISO(startDateObj)} ~ ${toISO(endDateObj)}`;
+  }else if(startDate){
+    startDateObj = parseDate(startDate);
+    meta.textContent = `施行期間：${startDate} ~ 不明`;
+  }else{
+    meta.textContent = `施行期間：不明`;
+  }
+
+  // イベント表示
+  if(startDateObj && endDateObj && EVENTS.length > 0){
+    const periodEvents = EVENTS.filter(e => {
+      const eventDate = parseDate(e.date);
+      if(!eventDate) return false;
+      return eventDate >= startDateObj && eventDate <= endDateObj;
+    });
+    
+    if(periodEvents.length > 0){
+      eventsEl.style.display="block";
+      eventsContent.innerHTML="";
+      periodEvents.forEach(e => {
+        const eventDiv = document.createElement("div");
+        eventDiv.style.marginBottom="4px";
+        eventDiv.style.fontSize="12px";
+        eventDiv.textContent = `${e.date}　${e.content}`;
+        eventsContent.appendChild(eventDiv);
+      });
+      eventsToggleIcon.textContent="▼";
+    }
+  }
+
+  const order=["禁止","制限","準制限","無制限"];
+  const catToStatus=(cat)=>cat==="禁止"?0:cat==="制限"?1:cat==="準制限"?2:3;
+
+  for(const cat of order){
+    const arr=(regData.by_category && regData.by_category[cat])?regData.by_category[cat]:[];
+    const title=document.createElement("div");
+    title.className="sectionTitle";
+    title.textContent=`${cat}：${arr.length}枚`;
+    body.appendChild(title);
+
+    if(arr.length===0){
+      const empty=document.createElement("div");
+      empty.className="sub";
+      empty.textContent="（なし）";
+      body.appendChild(empty);
+      continue;
+    }
+
+    const wrap=document.createElement("div");
+    wrap.style.display="grid";
+    wrap.style.gridTemplateColumns="1fr";
+    wrap.style.gap="6px";
+
+    for(const it of arr){
+      const row=document.createElement("div");
+      row.className="item";
+      row.style.cursor="default";
+      const badge=document.createElement("div");
+      badge.className="badge";
+      badge.style.background=stateColorVar(catToStatus(cat));
+      const w=document.createElement("div");
+      const t=document.createElement("div");
+      t.className="t";
+      t.textContent=it.card;
+      const d=document.createElement("div");
+      d.className="d";
+      d.textContent=it.change || "";
+      w.appendChild(t); w.appendChild(d);
+      row.appendChild(badge); row.appendChild(w);
+
+      if(highlightCard && it.card===highlightCard){
+        row.style.background="rgba(255,255,255,.06)";
+        row.style.borderRadius="10px";
+        row.style.padding="8px";
+      }
+      wrap.appendChild(row);
+    }
+    body.appendChild(wrap);
+  }
+}
+
+function renderLinks(cardName){
+  const box=document.getElementById("linkBox");
+  box.innerHTML="";
+  const links=LINKS[cardName];
+  const mk=(label,href)=>{
+    if(!href) return;
+    const a=document.createElement("a");
+    a.href=href; a.target="_blank"; a.rel="noopener noreferrer";
+    a.className="pill"; a.textContent=label;
+    box.appendChild(a);
+  };
+  if(!links) return;
+  mk("公式DB", links.official_db);
+  mk("note", links.note);
+  mk("Wiki", links.wiki);
+  mk("外部リンク", links.other);
+}
+
+function toggleCardDetail(cardIndex){
+  if(expandedCardIndex === cardIndex){
+    // 既に開いているカードをクリック → 閉じる
+    expandedCardIndex = null;
+  }else{
+    // 別のカードをクリック → その行を開き、現在開いている行を閉じる
+    expandedCardIndex = cardIndex;
+  }
+  render();
+}
+
+function renderCardDetail(cardIndex, container){
+  const c=cards[cardIndex];
+  container.innerHTML="";
+  
+  // 左側コンテナ
+  const leftContainer = document.createElement("div");
+  leftContainer.className = "detailLeft";
+  
+  // 右側コンテナ
+  const rightContainer = document.createElement("div");
+  rightContainer.className = "detailRight";
+  
+  const addKV=(k,v, targetContainer)=>{ 
+    const a=document.createElement("div"); 
+    a.textContent=k; 
+    const b=document.createElement("div"); 
+    b.textContent=v; 
+    targetContainer.appendChild(a); 
+    targetContainer.appendChild(b); 
+  };
+  
+  const kv = document.createElement("div");
+  kv.className = "kv";
+  addKV("初登場", getDebut(c.name, c.debut) || "不明", kv);
+  addKV("変化回数", String(computeChangeCount(c.states)), kv);
+  
+  // 累計規制期間
+  const periods = computeRegulationPeriods(c.states, c.debut);
+  const periodKey = document.createElement("div");
+  periodKey.textContent = "累計規制期間";
+  periodKey.style.color = "var(--muted)";
+  kv.appendChild(periodKey);
+  const periodValue = document.createElement("div");
+  periodValue.textContent = formatPeriod(periods.total);
+  kv.appendChild(periodValue);
+  
+  // 内訳
+  addKV("内訳", "", kv);
+  addKV("　- 禁止", formatPeriod(periods.forbidden), kv);
+  addKV("　- 制限", formatPeriod(periods.limited), kv);
+  addKV("　- 準制限", formatPeriod(periods.semi), kv);
+  
+  leftContainer.appendChild(kv);
+
+  // 初登場から初規制までの期間
+  const debutDate = parseDate(getDebut(c.name, c.debut) || c.debut);
+  let daysToFirstReg = null;
+  
+  if(debutDate){
+    // 初登場日以前に規制（禁止、制限、準制限）があったかチェック
+    let hasRegulationBeforeDebut = false;
+    for(let i=0; i<c.states.length; i++){
+      const state = c.states[i];
+      if(state === 0 || state === 1 || state === 2){
+        const regDate = dates[i];
+        if(regDate && regDate < debutDate){
+          hasRegulationBeforeDebut = true;
+          break;
+        }
+      }
+    }
+    
+    if(hasRegulationBeforeDebut){
+      // 初登場日以前から規制されていた場合は0日
+      daysToFirstReg = 0;
+    }else{
+      // 初登場後の最初の規制（禁止、制限、準制限）を見つける
+      let firstRegulationDate = null;
+      for(let i=0; i<c.states.length; i++){
+        const state = c.states[i];
+        if(state === 0 || state === 1 || state === 2){
+          // この状態が初登場日以降か確認
+          const regDate = dates[i];
+          if(regDate && regDate >= debutDate){
+            firstRegulationDate = regDate;
+            break;
+          }
+        }
+      }
+      
+      if(firstRegulationDate){
+        daysToFirstReg = daysBetween(debutDate, firstRegulationDate);
+      }
+    }
+  }
+  
+  if(debutDate && daysToFirstReg !== null){
+    const firstRegKey = document.createElement("div");
+    firstRegKey.textContent = "初規制まで";
+    firstRegKey.style.color = "var(--muted)";
+    kv.appendChild(firstRegKey);
+    const firstRegValue = document.createElement("div");
+    firstRegValue.textContent = formatPeriod(daysToFirstReg);
+    kv.appendChild(firstRegValue);
+  }
+
+  // リンク
+  const linkBox = document.createElement("div");
+  linkBox.style.marginTop = "12px";
+  const linkTitle = document.createElement("div");
+  linkTitle.className = "small";
+  linkTitle.textContent = "リンク";
+  linkTitle.style.marginBottom = "6px";
+  linkBox.appendChild(linkTitle);
+  const pills = document.createElement("div");
+  pills.className = "pills";
+  const links = LINKS[c.name];
+  const mk=(label,href)=>{
+    if(!href) return;
+    const a=document.createElement("a");
+    a.href=href; a.target="_blank"; a.rel="noopener noreferrer";
+    a.className="pill"; a.textContent=label;
+    pills.appendChild(a);
+  };
+  if(links){
+    mk("公式DB", links.official_db);
+    mk("note", links.note);
+    mk("Wiki", links.wiki);
+    mk("外部リンク", links.other);
+  }
+  linkBox.appendChild(pills);
+  leftContainer.appendChild(linkBox);
+
+  // 履歴（右側）
+  const histTitle = document.createElement("div");
+  histTitle.className = "small";
+  histTitle.textContent = "履歴（クリックすると右側にその回の内容を表示）";
+  histTitle.style.marginBottom = "6px";
+  rightContainer.appendChild(histTitle);
+  
+  const hist = document.createElement("div");
+  hist.className = "list";
+  hist.style.maxHeight = "40vh";
+  for(let i=0;i<rounds.length;i++){
+    const v=c.states[i];
+    const vv=(v===null||v===undefined||v==="-"||v==="－")?"-":v;
+    const item=document.createElement("div");
+    item.className="item";
+    const badge=document.createElement("div");
+    badge.className="badge"; badge.style.background=stateColorVar(vv);
+    const w=document.createElement("div");
+    const t=document.createElement("div"); t.className="t"; t.textContent=`${rounds[i]}：${stateLabel(vv)}`;
+    const d=document.createElement("div"); d.className="d"; d.textContent=(dateStrs[i]||"");
+    w.appendChild(t); w.appendChild(d);
+    item.appendChild(badge); item.appendChild(w);
+
+    item.addEventListener("click", async ()=>{
+      selected={cardIndex, atIndex:i};
+      render();
+      try{
+        const reg=await loadReg(rounds[i]);
+        renderRoundPanel(rounds[i], reg, c.name);
+      }catch(e){
+        document.getElementById("regErr").textContent="レギュレーションJSONの読み込みに失敗しました。";
+        renderRoundPanel(rounds[i], null, c.name);
+      }
+    });
+    hist.appendChild(item);
+  }
+  rightContainer.appendChild(hist);
+  
+  container.appendChild(leftContainer);
+  container.appendChild(rightContainer);
+}
+
+async function selectCard(cardIndex, atIndex){
+  selected={cardIndex, atIndex};
+  const c=cards[cardIndex];
+
+  if(atIndex!==null){
+    try{
+      const reg=await loadReg(rounds[atIndex]);
+      renderRoundPanel(rounds[atIndex], reg, c.name);
+    }catch(e){
+      document.getElementById("regErr").textContent="レギュレーションJSONの読み込みに失敗しました。";
+      renderRoundPanel(rounds[atIndex], null, c.name);
+    }
+  }else{
+    renderRoundPanel(null,null,null);
+  }
+}
+
+// Controls
+document.getElementById("q").addEventListener("input", ()=>render());
+document.getElementById("filter").addEventListener("change", ()=>render());
+document.getElementById("sort").addEventListener("change", ()=>render());
+document.getElementById("zoom").addEventListener("change", ()=>render());
+
+// Close buttons
+// Close buttonsは削除（不要になった）
+document.getElementById("eventsToggle").addEventListener("click", ()=>{
+  const eventsContent=document.getElementById("eventsContent");
+  const eventsToggleIcon=document.getElementById("eventsToggleIcon");
+  const isHidden = eventsContent.style.display === "none";
+  eventsContent.style.display = isHidden ? "block" : "none";
+  eventsToggleIcon.textContent = isHidden ? "▲" : "▼";
+});
+
+// ツマミのドラッグ機能
+(function(){
+  const handle = document.getElementById("sliderHandle");
+  const container = document.getElementById("sliderContainer");
+  if(!handle || !container) return;
+  
+  let isDragging = false;
+  
+  const updatePosition = (clientX) => {
+    const rect = container.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percent = Math.max(0, Math.min(1, x / rect.width));
+    updateSliderPosition(percent);
+  };
+  
+  handle.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    e.preventDefault();
+  });
+  
+  document.addEventListener("mousemove", (e) => {
+    if(isDragging){
+      updatePosition(e.clientX);
+    }
+  });
+  
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+  
+  container.addEventListener("click", (e) => {
+    if(e.target !== handle){
+      updatePosition(e.clientX);
+    }
+  });
+})();
+
+async function boot(){
+  const progress=document.getElementById("progress");
+  progress.textContent="データを読み込み中...";
+  await Promise.all([loadLinks(), loadCardIndex(), loadEvents()]);
+
+  progress.textContent="回一覧を読み込み中...";
+  const idx = await loadRegIndex();
+
+  const regs = [];
+  for(let i=0;i<idx.length;i++){
+    progress.textContent=`回データを読み込み中... (${i+1}/${idx.length})`;
+    const reg = await fetchJSON(idx[i].file);
+    regs.push(reg);
+  }
+
+  progress.textContent="チャートを生成中...";
+  cards = buildCardStatesFromRounds(regs);
+
+  progress.textContent=`準備完了：${cards.length}枚 / ${rounds.length}回`;
+
+  render();
+  
+  // ツマミの初期化（データ読み込み後に実行）
+  if(sliderPosition === null && minDate && maxDate){
+    const handle = document.getElementById("sliderHandle");
+    const container = document.getElementById("sliderContainer");
+    if(handle && container){
+      updateSliderPosition(0.5);
+    }
+  }
+}
+boot().catch((e)=>{
+  document.getElementById("progress").textContent="読み込みに失敗しました（data/ の配置を確認してください）";
+  console.error(e);
+});
+</script>
+</body>
+</html>

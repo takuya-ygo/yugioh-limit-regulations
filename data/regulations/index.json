@@ -1,0 +1,927 @@
+[
+  {
+    "round": "9908",
+    "effective_date": "1999-08-26",
+    "file": "data/regulations/9908.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 3,
+      "準制限": 0,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0004",
+    "effective_date": "2000-04-01",
+    "file": "data/regulations/0004.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 11,
+      "準制限": 3,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "0005",
+    "effective_date": "2000-05-15",
+    "file": "data/regulations/0005.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 12,
+      "準制限": 3,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "0007",
+    "effective_date": "2000-07-15",
+    "file": "data/regulations/0007.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 14,
+      "準制限": 5,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0008",
+    "effective_date": "2000-08-15",
+    "file": "data/regulations/0008.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 15,
+      "準制限": 5,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0011",
+    "effective_date": "2000-11-01",
+    "file": "data/regulations/0011.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 22,
+      "準制限": 5,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0101",
+    "effective_date": "2001-01-15",
+    "file": "data/regulations/0101.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 27,
+      "準制限": 10,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "0105",
+    "effective_date": "2001-05-28",
+    "file": "data/regulations/0105.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 26,
+      "準制限": 11,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "0201",
+    "effective_date": "2002-01-01",
+    "file": "data/regulations/0201.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 28,
+      "準制限": 11,
+      "無制限": 2
+    }
+  },
+  {
+    "round": "0205",
+    "effective_date": "2002-05-01",
+    "file": "data/regulations/0205.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 43,
+      "準制限": 10,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0301",
+    "effective_date": "2003-01-01",
+    "file": "data/regulations/0301.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 50,
+      "準制限": 9,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0304",
+    "effective_date": "2003-04-10",
+    "file": "data/regulations/0304.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 49,
+      "準制限": 7,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "0307",
+    "effective_date": "2003-07-01",
+    "file": "data/regulations/0307.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 50,
+      "準制限": 7,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0310",
+    "effective_date": "2003-10-15",
+    "file": "data/regulations/0310.json",
+    "counts": {
+      "禁止": 0,
+      "制限": 53,
+      "準制限": 9,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0403",
+    "effective_date": "2004-03-01",
+    "file": "data/regulations/0403.json",
+    "counts": {
+      "禁止": 10,
+      "制限": 43,
+      "準制限": 9,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0409",
+    "effective_date": "2004-09-01",
+    "file": "data/regulations/0409.json",
+    "counts": {
+      "禁止": 13,
+      "制限": 46,
+      "準制限": 8,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0503",
+    "effective_date": "2005-03-01",
+    "file": "data/regulations/0503.json",
+    "counts": {
+      "禁止": 18,
+      "制限": 45,
+      "準制限": 15,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "0509",
+    "effective_date": "2005-09-01",
+    "file": "data/regulations/0509.json",
+    "counts": {
+      "禁止": 22,
+      "制限": 47,
+      "準制限": 11,
+      "無制限": 3
+    }
+  },
+  {
+    "round": "0603",
+    "effective_date": "2006-03-01",
+    "file": "data/regulations/0603.json",
+    "counts": {
+      "禁止": 28,
+      "制限": 52,
+      "準制限": 12,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "0609",
+    "effective_date": "2006-09-01",
+    "file": "data/regulations/0609.json",
+    "counts": {
+      "禁止": 31,
+      "制限": 53,
+      "準制限": 11,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "0703",
+    "effective_date": "2007-03-01",
+    "file": "data/regulations/0703.json",
+    "counts": {
+      "禁止": 36,
+      "制限": 53,
+      "準制限": 11,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "0709",
+    "effective_date": "2007-09-01",
+    "file": "data/regulations/0709.json",
+    "counts": {
+      "禁止": 38,
+      "制限": 58,
+      "準制限": 14,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "0803",
+    "effective_date": "2008-03-01",
+    "file": "data/regulations/0803.json",
+    "counts": {
+      "禁止": 40,
+      "制限": 57,
+      "準制限": 12,
+      "無制限": 8
+    }
+  },
+  {
+    "round": "0809",
+    "effective_date": "2008-09-01",
+    "file": "data/regulations/0809.json",
+    "counts": {
+      "禁止": 43,
+      "制限": 56,
+      "準制限": 14,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "0903",
+    "effective_date": "2009-03-01",
+    "file": "data/regulations/0903.json",
+    "counts": {
+      "禁止": 42,
+      "制限": 60,
+      "準制限": 17,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "0909",
+    "effective_date": "2009-09-01",
+    "file": "data/regulations/0909.json",
+    "counts": {
+      "禁止": 45,
+      "制限": 63,
+      "準制限": 17,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "1003",
+    "effective_date": "2010-03-01",
+    "file": "data/regulations/1003.json",
+    "counts": {
+      "禁止": 45,
+      "制限": 70,
+      "準制限": 20,
+      "無制限": 2
+    }
+  },
+  {
+    "round": "1009",
+    "effective_date": "2010-09-01",
+    "file": "data/regulations/1009.json",
+    "counts": {
+      "禁止": 47,
+      "制限": 67,
+      "準制限": 18,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "1103",
+    "effective_date": "2011-03-01",
+    "file": "data/regulations/1103.json",
+    "counts": {
+      "禁止": 50,
+      "制限": 66,
+      "準制限": 18,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "1109",
+    "effective_date": "2011-09-01",
+    "file": "data/regulations/1109.json",
+    "counts": {
+      "禁止": 52,
+      "制限": 65,
+      "準制限": 18,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "1203",
+    "effective_date": "2012-03-01",
+    "file": "data/regulations/1203.json",
+    "counts": {
+      "禁止": 56,
+      "制限": 59,
+      "準制限": 25,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "1209",
+    "effective_date": "2012-09-01",
+    "file": "data/regulations/1209.json",
+    "counts": {
+      "禁止": 56,
+      "制限": 61,
+      "準制限": 28,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "1303",
+    "effective_date": "2013-03-01",
+    "file": "data/regulations/1303.json",
+    "counts": {
+      "禁止": 58,
+      "制限": 59,
+      "準制限": 26,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "1309",
+    "effective_date": "2013-09-01",
+    "file": "data/regulations/1309.json",
+    "counts": {
+      "禁止": 62,
+      "制限": 61,
+      "準制限": 26,
+      "無制限": 8
+    }
+  },
+  {
+    "round": "1311",
+    "effective_date": "2013-11-01",
+    "file": "data/regulations/1311.json",
+    "counts": {
+      "禁止": 62,
+      "制限": 61,
+      "準制限": 26,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "1402",
+    "effective_date": "2014-02-01",
+    "file": "data/regulations/1402.json",
+    "counts": {
+      "禁止": 62,
+      "制限": 63,
+      "準制限": 27,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "1404",
+    "effective_date": "2014-04-01",
+    "file": "data/regulations/1404.json",
+    "counts": {
+      "禁止": 62,
+      "制限": 65,
+      "準制限": 23,
+      "無制限": 3
+    }
+  },
+  {
+    "round": "1407",
+    "effective_date": "2014-07-01",
+    "file": "data/regulations/1407.json",
+    "counts": {
+      "禁止": 62,
+      "制限": 62,
+      "準制限": 24,
+      "無制限": 8
+    }
+  },
+  {
+    "round": "1410",
+    "effective_date": "2014-10-01",
+    "file": "data/regulations/1410.json",
+    "counts": {
+      "禁止": 62,
+      "制限": 67,
+      "準制限": 21,
+      "無制限": 3
+    }
+  },
+  {
+    "round": "1501",
+    "effective_date": "2015-01-01",
+    "file": "data/regulations/1501.json",
+    "counts": {
+      "禁止": 56,
+      "制限": 76,
+      "準制限": 17,
+      "無制限": 9
+    }
+  },
+  {
+    "round": "1504",
+    "effective_date": "2015-04-01",
+    "file": "data/regulations/1504.json",
+    "counts": {
+      "禁止": 56,
+      "制限": 71,
+      "準制限": 15,
+      "無制限": 15
+    }
+  },
+  {
+    "round": "1507",
+    "effective_date": "2015-07-01",
+    "file": "data/regulations/1507.json",
+    "counts": {
+      "禁止": 56,
+      "制限": 71,
+      "準制限": 15,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "1510",
+    "effective_date": "2015-10-01",
+    "file": "data/regulations/1510.json",
+    "counts": {
+      "禁止": 57,
+      "制限": 60,
+      "準制限": 19,
+      "無制限": 12
+    }
+  },
+  {
+    "round": "1601",
+    "effective_date": "2016-01-01",
+    "file": "data/regulations/1601.json",
+    "counts": {
+      "禁止": 60,
+      "制限": 60,
+      "準制限": 19,
+      "無制限": 0
+    }
+  },
+  {
+    "round": "1604",
+    "effective_date": "2016-04-01",
+    "file": "data/regulations/1604.json",
+    "counts": {
+      "禁止": 61,
+      "制限": 76,
+      "準制限": 11,
+      "無制限": 10
+    }
+  },
+  {
+    "round": "1607",
+    "effective_date": "2016-07-01",
+    "file": "data/regulations/1607.json",
+    "counts": {
+      "禁止": 61,
+      "制限": 73,
+      "準制限": 13,
+      "無制限": 1
+    }
+  },
+  {
+    "round": "1610",
+    "effective_date": "2016-10-01",
+    "file": "data/regulations/1610.json",
+    "counts": {
+      "禁止": 61,
+      "制限": 68,
+      "準制限": 17,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "1701",
+    "effective_date": "2017-01-01",
+    "file": "data/regulations/1701.json",
+    "counts": {
+      "禁止": 56,
+      "制限": 76,
+      "準制限": 13,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "1704",
+    "effective_date": "2017-04-01",
+    "file": "data/regulations/1704.json",
+    "counts": {
+      "禁止": 58,
+      "制限": 73,
+      "準制限": 18,
+      "無制限": 3
+    }
+  },
+  {
+    "round": "1707",
+    "effective_date": "2017-07-01",
+    "file": "data/regulations/1707.json",
+    "counts": {
+      "禁止": 59,
+      "制限": 65,
+      "準制限": 23,
+      "無制限": 8
+    }
+  },
+  {
+    "round": "1710",
+    "effective_date": "2017-10-01",
+    "file": "data/regulations/1710.json",
+    "counts": {
+      "禁止": 60,
+      "制限": 72,
+      "準制限": 17,
+      "無制限": 11
+    }
+  },
+  {
+    "round": "1801",
+    "effective_date": "2018-01-01",
+    "file": "data/regulations/1801.json",
+    "counts": {
+      "禁止": 61,
+      "制限": 74,
+      "準制限": 21,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "1804",
+    "effective_date": "2018-04-01",
+    "file": "data/regulations/1804.json",
+    "counts": {
+      "禁止": 61,
+      "制限": 79,
+      "準制限": 17,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "1807",
+    "effective_date": "2018-07-01",
+    "file": "data/regulations/1807.json",
+    "counts": {
+      "禁止": 64,
+      "制限": 77,
+      "準制限": 17,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "1810",
+    "effective_date": "2018-10-01",
+    "file": "data/regulations/1810.json",
+    "counts": {
+      "禁止": 65,
+      "制限": 77,
+      "準制限": 20,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "1901",
+    "effective_date": "2019-01-01",
+    "file": "data/regulations/1901.json",
+    "counts": {
+      "禁止": 73,
+      "制限": 73,
+      "準制限": 22,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "1904",
+    "effective_date": "2019-04-01",
+    "file": "data/regulations/1904.json",
+    "counts": {
+      "禁止": 73,
+      "制限": 71,
+      "準制限": 20,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "1907",
+    "effective_date": "2019-07-01",
+    "file": "data/regulations/1907.json",
+    "counts": {
+      "禁止": 75,
+      "制限": 69,
+      "準制限": 24,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "1910",
+    "effective_date": "2019-10-01",
+    "file": "data/regulations/1910.json",
+    "counts": {
+      "禁止": 76,
+      "制限": 66,
+      "準制限": 23,
+      "無制限": 8
+    }
+  },
+  {
+    "round": "2001",
+    "effective_date": "2020-01-01",
+    "file": "data/regulations/2001.json",
+    "counts": {
+      "禁止": 77,
+      "制限": 62,
+      "準制限": 32,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "2004",
+    "effective_date": "2020-04-01",
+    "file": "data/regulations/2004.json",
+    "counts": {
+      "禁止": 78,
+      "制限": 83,
+      "準制限": 28,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2007",
+    "effective_date": "2020-07-01",
+    "file": "data/regulations/2007.json",
+    "counts": {
+      "禁止": 79,
+      "制限": 78,
+      "準制限": 30,
+      "無制限": 2
+    }
+  },
+  {
+    "round": "2010",
+    "effective_date": "2020-10-01",
+    "file": "data/regulations/2010.json",
+    "counts": {
+      "禁止": 81,
+      "制限": 78,
+      "準制限": 28,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2101",
+    "effective_date": "2021-01-01",
+    "file": "data/regulations/2101.json",
+    "counts": {
+      "禁止": 81,
+      "制限": 78,
+      "準制限": 27,
+      "無制限": 3
+    }
+  },
+  {
+    "round": "2104",
+    "effective_date": "2021-04-01",
+    "file": "data/regulations/2104.json",
+    "counts": {
+      "禁止": 82,
+      "制限": 76,
+      "準制限": 24,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "2107",
+    "effective_date": "2021-07-01",
+    "file": "data/regulations/2107.json",
+    "counts": {
+      "禁止": 83,
+      "制限": 74,
+      "準制限": 23,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "2110",
+    "effective_date": "2021-10-01",
+    "file": "data/regulations/2110.json",
+    "counts": {
+      "禁止": 85,
+      "制限": 72,
+      "準制限": 22,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "2201",
+    "effective_date": "2022-01-01",
+    "file": "data/regulations/2201.json",
+    "counts": {
+      "禁止": 86,
+      "制限": 73,
+      "準制限": 22,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "2204",
+    "effective_date": "2022-04-01",
+    "file": "data/regulations/2204.json",
+    "counts": {
+      "禁止": 87,
+      "制限": 66,
+      "準制限": 28,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "2207",
+    "effective_date": "2022-07-01",
+    "file": "data/regulations/2207.json",
+    "counts": {
+      "禁止": 89,
+      "制限": 65,
+      "準制限": 19,
+      "無制限": 11
+    }
+  },
+  {
+    "round": "2210",
+    "effective_date": "2022-10-01",
+    "file": "data/regulations/2210.json",
+    "counts": {
+      "禁止": 89,
+      "制限": 71,
+      "準制限": 20,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2301",
+    "effective_date": "2023-01-01",
+    "file": "data/regulations/2301.json",
+    "counts": {
+      "禁止": 87,
+      "制限": 75,
+      "準制限": 23,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2304",
+    "effective_date": "2023-04-01",
+    "file": "data/regulations/2304.json",
+    "counts": {
+      "禁止": 86,
+      "制限": 78,
+      "準制限": 26,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2307",
+    "effective_date": "2023-07-01",
+    "file": "data/regulations/2307.json",
+    "counts": {
+      "禁止": 88,
+      "制限": 81,
+      "準制限": 19,
+      "無制限": 9
+    }
+  },
+  {
+    "round": "2310",
+    "effective_date": "2023-10-01",
+    "file": "data/regulations/2310.json",
+    "counts": {
+      "禁止": 92,
+      "制限": 77,
+      "準制限": 21,
+      "無制限": 4
+    }
+  },
+  {
+    "round": "2401",
+    "effective_date": "2024-01-01",
+    "file": "data/regulations/2401.json",
+    "counts": {
+      "禁止": 89,
+      "制限": 81,
+      "準制限": 20,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2404",
+    "effective_date": "2024-04-01",
+    "file": "data/regulations/2404.json",
+    "counts": {
+      "禁止": 87,
+      "制限": 83,
+      "準制限": 20,
+      "無制限": 6
+    }
+  },
+  {
+    "round": "2407",
+    "effective_date": "2024-07-01",
+    "file": "data/regulations/2407.json",
+    "counts": {
+      "禁止": 87,
+      "制限": 82,
+      "準制限": 22,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2410",
+    "effective_date": "2024-10-01",
+    "file": "data/regulations/2410.json",
+    "counts": {
+      "禁止": 84,
+      "制限": 81,
+      "準制限": 24,
+      "無制限": 11
+    }
+  },
+  {
+    "round": "2501",
+    "effective_date": "2025-01-01",
+    "file": "data/regulations/2501.json",
+    "counts": {
+      "禁止": 84,
+      "制限": 81,
+      "準制限": 22,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "2504",
+    "effective_date": "2025-04-01",
+    "file": "data/regulations/2504.json",
+    "counts": {
+      "禁止": 86,
+      "制限": 82,
+      "準制限": 14,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "2507",
+    "effective_date": "2025-07-01",
+    "file": "data/regulations/2507.json",
+    "counts": {
+      "禁止": 86,
+      "制限": 82,
+      "準制限": 10,
+      "無制限": 7
+    }
+  },
+  {
+    "round": "2510",
+    "effective_date": "2025-10-01",
+    "file": "data/regulations/2510.json",
+    "counts": {
+      "禁止": 87,
+      "制限": 81,
+      "準制限": 14,
+      "無制限": 5
+    }
+  },
+  {
+    "round": "2601",
+    "effective_date": "2026-01-01",
+    "file": "data/regulations/2601.json",
+    "counts": {
+      "禁止": 89,
+      "制限": 88,
+      "準制限": 9,
+      "無制限": 7
+    }
+  }
+
+]

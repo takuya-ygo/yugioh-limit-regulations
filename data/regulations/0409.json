@@ -1,0 +1,624 @@
+{
+  "round": "0409",
+  "effective_date": "2004-09-01",
+  "items": [
+    {
+      "category": "禁止",
+      "card": "いたずら好きな双子悪魔",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "王宮の勅命",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "クリッター",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "黒き森のウィッチ",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "サンダー・ボルト",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "団結の力",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "ハーピィの羽根帚",
+      "change": null
+    },
+    {
+      "category": "禁止",
+      "card": "ブラック・ホール",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "混沌帝龍 －終焉の使者－",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "死者蘇生",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "聖なるバリア －ミラーフォース－",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "天使の施し",
+      "change": "制限⇒禁止"
+    },
+    {
+      "category": "禁止",
+      "card": "八汰烏",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "悪夢の蜃気楼",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ヴァンパイア・ロード",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "押収",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "大嵐",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "お注射天使リリー",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "カオス・ソルジャー －開闢の使者－",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "キラー・スネーク",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "苦渋の選択",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "激流葬",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "現世と冥界の逆転",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "強引な番兵",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "強奪",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "混沌の黒魔術師",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "サイクロン",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "サイバーポッド",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "死のデッキ破壊ウイルス",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "神殿を守る者",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "第六感",
+      "change": "新規・追加"
+    },
+    {
+      "category": "制限",
+      "card": "停戦協定",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "手札抹殺",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "同族感染ウィルス",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ドル・ドラ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ならず者傭兵部隊",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "成金ゴブリン",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "破壊輪",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "早すぎた埋葬",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "光の護封剣",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "ファイバーポッド",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "魔導サイエンティスト",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "魔導師の力",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "魔導戦士 ブレイカー",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "魔法の筒",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "無謀な欲張り",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "メタモルポット",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "メタモルポット",
+      "change": "準制限⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "リビングデッドの呼び声",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "強欲な壺",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "心変わり",
+      "change": "禁止⇒制限"
+    },
+    {
+      "category": "制限",
+      "card": "人造人間－サイコ・ショッカー",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "蝶の短剣－エルマ",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されしエクゾディア",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の右腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左足",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "封印されし者の左腕",
+      "change": null
+    },
+    {
+      "category": "制限",
+      "card": "魔鏡導士リフレクト・バウンダー",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "暗黒のマンティコア",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "カオスポッド",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "強制転移",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "切り込み隊長",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "増援",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "抹殺の使徒",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "ラストバトル！",
+      "change": null
+    },
+    {
+      "category": "準制限",
+      "card": "処刑人－マキュラ",
+      "change": null
+    }
+  ],
+  "by_category": {
+    "禁止": [
+      {
+        "card": "いたずら好きな双子悪魔",
+        "change": null
+      },
+      {
+        "card": "王宮の勅命",
+        "change": null
+      },
+      {
+        "card": "クリッター",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "黒き森のウィッチ",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "サンダー・ボルト",
+        "change": null
+      },
+      {
+        "card": "団結の力",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "ハーピィの羽根帚",
+        "change": null
+      },
+      {
+        "card": "ブラック・ホール",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "混沌帝龍 －終焉の使者－",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "死者蘇生",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "聖なるバリア －ミラーフォース－",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "天使の施し",
+        "change": "制限⇒禁止"
+      },
+      {
+        "card": "八汰烏",
+        "change": null
+      }
+    ],
+    "制限": [
+      {
+        "card": "悪夢の蜃気楼",
+        "change": null
+      },
+      {
+        "card": "ヴァンパイア・ロード",
+        "change": null
+      },
+      {
+        "card": "押収",
+        "change": null
+      },
+      {
+        "card": "大嵐",
+        "change": null
+      },
+      {
+        "card": "お注射天使リリー",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "カオス・ソルジャー －開闢の使者－",
+        "change": null
+      },
+      {
+        "card": "キラー・スネーク",
+        "change": null
+      },
+      {
+        "card": "苦渋の選択",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "激流葬",
+        "change": "新規・追加"
+      },
+      {
+        "card": "現世と冥界の逆転",
+        "change": null
+      },
+      {
+        "card": "強引な番兵",
+        "change": null
+      },
+      {
+        "card": "強奪",
+        "change": null
+      },
+      {
+        "card": "混沌の黒魔術師",
+        "change": null
+      },
+      {
+        "card": "サイクロン",
+        "change": "新規・追加"
+      },
+      {
+        "card": "サイバーポッド",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "死のデッキ破壊ウイルス",
+        "change": "新規・追加"
+      },
+      {
+        "card": "神殿を守る者",
+        "change": "新規・追加"
+      },
+      {
+        "card": "第六感",
+        "change": "新規・追加"
+      },
+      {
+        "card": "停戦協定",
+        "change": null
+      },
+      {
+        "card": "手札抹殺",
+        "change": null
+      },
+      {
+        "card": "同族感染ウィルス",
+        "change": null
+      },
+      {
+        "card": "ドル・ドラ",
+        "change": null
+      },
+      {
+        "card": "ならず者傭兵部隊",
+        "change": null
+      },
+      {
+        "card": "成金ゴブリン",
+        "change": null
+      },
+      {
+        "card": "破壊輪",
+        "change": null
+      },
+      {
+        "card": "早すぎた埋葬",
+        "change": null
+      },
+      {
+        "card": "光の護封剣",
+        "change": null
+      },
+      {
+        "card": "ファイバーポッド",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "魔導サイエンティスト",
+        "change": null
+      },
+      {
+        "card": "魔導師の力",
+        "change": null
+      },
+      {
+        "card": "魔導戦士 ブレイカー",
+        "change": null
+      },
+      {
+        "card": "魔法の筒",
+        "change": null
+      },
+      {
+        "card": "無謀な欲張り",
+        "change": null
+      },
+      {
+        "card": "メタモルポット",
+        "change": null
+      },
+      {
+        "card": "メタモルポット",
+        "change": "準制限⇒制限"
+      },
+      {
+        "card": "リビングデッドの呼び声",
+        "change": null
+      },
+      {
+        "card": "強欲な壺",
+        "change": null
+      },
+      {
+        "card": "心変わり",
+        "change": "禁止⇒制限"
+      },
+      {
+        "card": "人造人間－サイコ・ショッカー",
+        "change": null
+      },
+      {
+        "card": "蝶の短剣－エルマ",
+        "change": null
+      },
+      {
+        "card": "封印されしエクゾディア",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の右腕",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左足",
+        "change": null
+      },
+      {
+        "card": "封印されし者の左腕",
+        "change": null
+      },
+      {
+        "card": "魔鏡導士リフレクト・バウンダー",
+        "change": null
+      }
+    ],
+    "準制限": [
+      {
+        "card": "暗黒のマンティコア",
+        "change": null
+      },
+      {
+        "card": "カオスポッド",
+        "change": null
+      },
+      {
+        "card": "強制転移",
+        "change": null
+      },
+      {
+        "card": "切り込み隊長",
+        "change": null
+      },
+      {
+        "card": "増援",
+        "change": null
+      },
+      {
+        "card": "抹殺の使徒",
+        "change": null
+      },
+      {
+        "card": "ラストバトル！",
+        "change": null
+      },
+      {
+        "card": "処刑人－マキュラ",
+        "change": null
+      }
+    ],
+    "無制限": []
+  },
+  "counts": {
+    "禁止": 13,
+    "制限": 46,
+    "準制限": 8,
+    "無制限": 0
+  }
+}
