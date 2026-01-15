@@ -16,7 +16,10 @@ header{position:sticky;top:0;z-index:10;background:rgba(11,15,20,.92);backdrop-f
 .container{max-width:1700px;margin:0 auto;padding:12px 16px}
 h1{font-size:18px;margin:0 0 8px 0}
 .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-input[type="search"]{flex:1;min-width:260px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)}
+.searchContainer{position:relative;flex:1;min-width:260px}
+input[type="search"]{width:100%;padding:10px 35px 10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text)}
+.clearBtn{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:20px;height:20px;padding:0;border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;line-height:1}
+.clearBtn:hover{color:var(--text)}
 select,button{padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--panel);color:var(--text);cursor:pointer}
 button:hover{filter:brightness(1.08)}
 .legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:12px}
@@ -46,19 +49,23 @@ button:hover{filter:brightness(1.08)}
 .sliderHandle{position:absolute;top:50%;transform:translate(-50%, -50%);width:12px;height:20px;background:var(--text);border:2px solid var(--border);border-radius:6px;cursor:grab;z-index:10;box-shadow:0 2px 4px rgba(0,0,0,.3)}
 .sliderHandle:active{cursor:grabbing}
 .sliderTick{position:absolute;top:0;bottom:0;width:1px;background:rgba(156,163,175,.4);z-index:5;transform:translateX(-50%);pointer-events:none}
-.rows{max-height:72vh;overflow:auto;scrollbar-gutter:stable;position:relative}
+.rows{max-height:60vh;overflow:auto;scrollbar-gutter:stable;position:relative}
 .row .timeline{position:relative}
 .row .timeline .dateLine{position:absolute;top:0;bottom:0;width:2px;background:var(--text);opacity:0.6;z-index:10;transform:translateX(-50%);pointer-events:none}
 .axisRow{position:sticky;top:0;z-index:6;background:rgba(11,15,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
 .axisRow .axisLabels{margin:0 10px;height:22px;position:relative}
 .row{display:grid;grid-template-columns: 260px 120px 1fr;align-items:center;border-bottom:1px solid rgba(36,48,65,.65)}
 .row:hover{background:rgba(255,255,255,.03)}
-.rowDetail{display:none;grid-column:1/-1;padding:16px;background:rgba(17,24,39,.4);border-top:1px solid rgba(36,48,65,.65);grid-template-columns:1fr 1fr;gap:20px}
+.rowDetail{display:none;grid-column:1/-1;padding:16px 0;background:rgba(17,24,39,.4);border-top:1px solid rgba(36,48,65,.65);grid-template-columns: 260px 120px 1fr;gap:0}
 .rowDetail.open{display:grid}
 .rowDetail .kv{display:grid;grid-template-columns:110px 1fr;gap:6px 10px;font-size:12px;margin-bottom:10px}
 .rowDetail .kv div:nth-child(odd){color:var(--muted)}
-.rowDetail .detailLeft{display:flex;flex-direction:column}
-.rowDetail .detailRight{display:flex;flex-direction:column}
+.rowDetail .detailLeft{display:flex;flex-direction:column;grid-column:1;padding:0 12px}
+.rowDetail .detailMiddle{grid-column:2}
+.rowDetail .detailHistory{grid-column:3;position:relative;margin:6px 10px;padding-top:0}
+.rowDetail .historyLine{position:absolute;top:-16px;width:2px;background:var(--text);opacity:0.6}
+.rowDetail .historyLabel{position:absolute;white-space:nowrap;font-size:11px;color:var(--text);writing-mode:vertical-rl;text-orientation:upright;transform:translateX(-50%)}
+.rowDetail .historyDate{position:absolute;white-space:nowrap;font-size:10px;color:var(--muted);transform:rotate(90deg) translateX(-50%);transform-origin:left center}
 
 .nameCell{padding:6px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .nameBtn{all:unset;cursor:pointer;max-width:240px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -126,7 +133,10 @@ code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
   <div class="container">
     <h1>遊戯王OCG｜リミットレギュレーションチャート</h1>
     <div class="controls">
-      <input id="q" type="search" placeholder="カード名で検索">
+      <div class="searchContainer">
+        <input id="q" type="search" placeholder="カード名で検索">
+        <button id="clearSearch" class="clearBtn" title="検索をクリア">✕</button>
+      </div>
       <select id="filter">
         <option value="">絞り込み：なし</option>
         <option value="0">絞り込み：禁止履歴あり</option>
@@ -134,16 +144,10 @@ code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
         <option value="2">絞り込み：準制限履歴あり</option>
       </select>
       <select id="sort">
-        <option value="debut">並び：初登場日</option>
-        <option value="name">並び：カード名</option>
+        <option value="debut">並び：初登場日（古い順）</option>
+        <option value="name">並び：カード名（昇順）</option>
         <option value="changes">並び：変化回数（多い順）</option>
-        <option value="firstReg">並び：初規制まで</option>
-      </select>
-      <select id="zoom">
-        <option value="1">表示倍率：1x</option>
-        <option value="1.5">表示倍率：1.5x</option>
-        <option value="2">表示倍率：2x</option>
-        <option value="3">表示倍率：3x</option>
+        <option value="firstReg">並び：初規制まで（短い順）</option>
       </select>
     </div>
     <div class="legend">
@@ -184,8 +188,9 @@ code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px}
     <div class="panelHeader">
       <h2 id="rTitle">回をクリック</h2>
     </div>
-    <div class="sub" id="rSub">カード履歴の行やバーをクリックすると、このエリアにその回のレギュレーションが表示されます。</div>
+    <div class="sub" id="rSub">カード履歴の線やバーをクリックすると、このエリアにその回のレギュレーションが表示されます。</div>
     <div id="regMeta" class="sub"></div>
+    <div id="regChangeCount" class="sub"></div>
     <div id="regEvents" class="sub" style="display:none;">
       <div style="cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px;" id="eventsToggle">
         <span>この期間の主な出来事</span>
@@ -211,7 +216,7 @@ let LINKS = {};
 let CARD_INDEX = { card_debut: {} };
 let DEBUT_BY_KEY = new Map();
 let REG_INDEX = null;
-const REG_CACHE = new Map();
+let REGULATIONS_DATA = null; // 統合されたレギュレーションデータ
 let EVENTS = [];
 
 let rounds = [];
@@ -226,6 +231,7 @@ let sliderDate = null; // ツマミが指す日付
 let expandedCardIndex = null; // 現在展開されているカードのインデックス
 
 const stateLabel = (v) => (v===0?"禁止":v===1?"制限":v===2?"準制限":v===3?"無制限":"未登場/対象外");
+const stateShortLabel = (v) => (v===0?"禁":v===1?"制":v===2?"準":v===3?"無":"");
 const stateColorVar = (v) => (v===0?"var(--forbidden)":v===1?"var(--limited)":v===2?"var(--semi)":v===3?"var(--unlimited)":"var(--na)");
 const parseDate = (s) => { const d=new Date(String(s)+"T00:00:00"); return isNaN(d)?null:d; };
 const toISO = (d) => {
@@ -345,31 +351,17 @@ async function loadEvents(){
   }
 }
 
-async function loadRegIndex(){
-  if(REG_INDEX) return REG_INDEX;
-  REG_INDEX = await fetchJSON("data/regulations/index.json");
-  REG_INDEX.sort((a,b)=>{
-    // 施行日でソート（YYMM形式にも対応）
-    const da = a.effective_date || "";
-    const db = b.effective_date || "";
-    if(da && db) return da.localeCompare(db);
-    if(da) return -1;
-    if(db) return 1;
-    // 施行日がない場合、round名でソート（フォールバック）
-    const na=parseInt(String(a.round).replace(/\D/g,""),10);
-    const nb=parseInt(String(b.round).replace(/\D/g,""),10);
-    return na-nb;
-  });
-  return REG_INDEX;
+async function loadRegulationsData(){
+  if(REGULATIONS_DATA) return REGULATIONS_DATA;
+  REGULATIONS_DATA = await fetchJSON("data/regulations.json");
+  return REGULATIONS_DATA;
 }
+
 async function loadReg(roundName){
-  if(REG_CACHE.has(roundName)) return REG_CACHE.get(roundName);
-  const idx = await loadRegIndex();
-  const hit = idx.find(x=>x.round===roundName);
-  if(!hit) return null;
-  const data = await fetchJSON(hit.file);
-  REG_CACHE.set(roundName, data);
-  return data;
+  const data = await loadRegulationsData();
+  if(!data || !Array.isArray(data)) return null;
+  const reg = data.find(r => r.round === roundName);
+  return reg || null;
 }
 
 /**
@@ -655,8 +647,7 @@ function updateSliderPosition(percent){
 function renderAxis(){
   const axis=document.getElementById("axis");
   axis.innerHTML="";
-  const zoom=parseFloat(document.getElementById("zoom").value);
-  axis.style.transform=`scaleX(${zoom})`;
+  axis.style.transform=`scaleX(1)`;
   axis.style.transformOrigin="left center";
   if(!minDate || !maxDate) return;
 
@@ -711,10 +702,9 @@ function render(){
   const rowsEl=document.getElementById("rows");
   rowsEl.querySelectorAll(".row:not(.axisRow)").forEach(el=>el.remove());
 
-  const zoom=parseFloat(document.getElementById("zoom").value);
-
   for(const c of list){
     const row=document.createElement("div"); row.className="row";
+    row.setAttribute("data-card-index", c._idx);
 
     const nameCell=document.createElement("div"); nameCell.className="nameCell";
     const btn=document.createElement("button"); btn.className="nameBtn"; btn.textContent=c.name; btn.title=c.name;
@@ -727,7 +717,7 @@ function render(){
 
     const timeline=document.createElement("div");
     timeline.className="timeline";
-    timeline.style.transform=`scaleX(${zoom})`;
+    timeline.style.transform=`scaleX(1)`;
     timeline.style.transformOrigin="left center";
 
     for(const s of buildSegments(c.states, c.debut)){
@@ -759,7 +749,15 @@ if(s.end.getTime() <= s.start.getTime() + 1){
       if(selected.cardIndex===c._idx && selected.atIndex!==null && (s.i<=selected.atIndex && selected.atIndex<=s.i2)){
         seg.classList.add("sel");
       }
-      seg.addEventListener("click",(ev)=>{ ev.stopPropagation(); toggleCardDetail(c._idx); selectCard(c._idx, s.i); });
+      seg.addEventListener("click",(ev)=>{ 
+        ev.stopPropagation(); 
+        // カード詳細画面が閉じている場合のみ開く
+        if(expandedCardIndex !== c._idx){
+          expandedCardIndex = c._idx;
+          render();
+        }
+        selectCard(c._idx, s.i); 
+      });
       timeline.appendChild(seg);
     }
 
@@ -800,18 +798,20 @@ function renderRoundPanel(roundName, regData, highlightCard=null){
   const rTitle=document.getElementById("rTitle");
   const rSub=document.getElementById("rSub");
   const meta=document.getElementById("regMeta");
+  const changeCountEl=document.getElementById("regChangeCount");
   const eventsEl=document.getElementById("regEvents");
   const eventsContent=document.getElementById("eventsContent");
   const eventsToggleIcon=document.getElementById("eventsToggleIcon");
   const body=document.getElementById("regBody");
   const err=document.getElementById("regErr");
   err.textContent=""; body.innerHTML="";
+  changeCountEl.textContent="";
   eventsEl.style.display="none";
   eventsContent.style.display="none";
   eventsContent.innerHTML="";
   if(!roundName){
     rTitle.textContent="回をクリック";
-    rSub.textContent="カード履歴の行やバーをクリックすると、このエリアにその回のレギュレーションが表示されます。";
+    rSub.textContent="カード履歴の線やバーをクリックすると、このエリアにその回のレギュレーションが表示されます。";
     meta.textContent="";
     return;
   }
@@ -855,6 +855,23 @@ function renderRoundPanel(roundName, regData, highlightCard=null){
     meta.textContent = `施行期間：不明`;
   }
 
+  // 変更があったカードの枚数をカウント
+  const order=["禁止","制限","準制限","無制限"];
+  let changeCount = 0;
+  for(const cat of order){
+    const arr=(regData.by_category && regData.by_category[cat])?regData.by_category[cat]:[];
+    for(const it of arr){
+      if(it.change && it.change !== null){
+        changeCount++;
+      }
+    }
+  }
+  if(changeCount > 0){
+    changeCountEl.textContent = `変更があったカード：${changeCount}枚`;
+  }else{
+    changeCountEl.textContent = `変更があったカード：0枚`;
+  }
+
   // イベント表示
   if(startDateObj && endDateObj && EVENTS.length > 0){
     const periodEvents = EVENTS.filter(e => {
@@ -876,8 +893,6 @@ function renderRoundPanel(roundName, regData, highlightCard=null){
       eventsToggleIcon.textContent="▼";
     }
   }
-
-  const order=["禁止","制限","準制限","無制限"];
   const catToStatus=(cat)=>cat==="禁止"?0:cat==="制限"?1:cat==="準制限"?2:3;
 
   for(const cat of order){
@@ -904,6 +919,9 @@ function renderRoundPanel(roundName, regData, highlightCard=null){
       const row=document.createElement("div");
       row.className="item";
       row.style.cursor="default";
+      if(highlightCard && it.card===highlightCard){
+        row.setAttribute("data-highlight-card", "true");
+      }
       const badge=document.createElement("div");
       badge.className="badge";
       badge.style.background=stateColorVar(catToStatus(cat));
@@ -917,14 +935,32 @@ function renderRoundPanel(roundName, regData, highlightCard=null){
       w.appendChild(t); w.appendChild(d);
       row.appendChild(badge); row.appendChild(w);
 
+      // 変更があったカードを少し強調表示
+      if(it.change && it.change !== null){
+        row.style.background="rgba(255,255,255,.04)";
+        row.style.borderLeft="2px solid rgba(255,255,255,.3)";
+      }
+
+      // 選択カードの強調表示（変更があったカードとは異なる色）
       if(highlightCard && it.card===highlightCard){
-        row.style.background="rgba(255,255,255,.06)";
+        row.style.background="rgba(59,130,246,.15)"; // 青色系で強調
+        row.style.borderLeft="3px solid rgba(59,130,246,.5)";
         row.style.borderRadius="10px";
         row.style.padding="8px";
       }
       wrap.appendChild(row);
     }
     body.appendChild(wrap);
+  }
+  
+  // 選択カードがある場合、そのカードが中央に来るようにスクロール
+  if(highlightCard){
+    requestAnimationFrame(() => {
+      const highlightedRow = body.querySelector('[data-highlight-card="true"]');
+      if(highlightedRow){
+        highlightedRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
   }
 }
 
@@ -946,10 +982,24 @@ function renderLinks(cardName){
   mk("外部リンク", links.other);
 }
 
-function toggleCardDetail(cardIndex){
+async function toggleCardDetail(cardIndex){
   if(expandedCardIndex === cardIndex){
     // 既に開いているカードをクリック → 閉じる
     expandedCardIndex = null;
+    // 選択カードを解除
+    const previousAtIndex = selected.atIndex;
+    selected = { cardIndex: null, atIndex: null };
+    // レギュレーション詳細画面を更新（選択カードなし、現在のレギュレーションは維持）
+    if(previousAtIndex !== null && previousAtIndex >= 0 && previousAtIndex < rounds.length){
+      try{
+        const reg = await loadReg(rounds[previousAtIndex]);
+        renderRoundPanel(rounds[previousAtIndex], reg, null);
+      }catch(e){
+        renderRoundPanel(rounds[previousAtIndex], null, null);
+      }
+    }else{
+      renderRoundPanel(null,null,null);
+    }
   }else{
     // 別のカードをクリック → その行を開き、現在開いている行を閉じる
     expandedCardIndex = cardIndex;
@@ -961,13 +1011,17 @@ function renderCardDetail(cardIndex, container){
   const c=cards[cardIndex];
   container.innerHTML="";
   
-  // 左側コンテナ
+  // 左側コンテナ（初登場～リンク）
   const leftContainer = document.createElement("div");
   leftContainer.className = "detailLeft";
   
-  // 右側コンテナ
-  const rightContainer = document.createElement("div");
-  rightContainer.className = "detailRight";
+  // 中央コンテナ（空白）
+  const middleContainer = document.createElement("div");
+  middleContainer.className = "detailMiddle";
+  
+  // 履歴セクション（チャートの下）
+  const historyContainer = document.createElement("div");
+  historyContainer.className = "detailHistory";
   
   const addKV=(k,v, targetContainer)=>{ 
     const a=document.createElement("div"); 
@@ -1080,51 +1134,198 @@ function renderCardDetail(cardIndex, container){
   linkBox.appendChild(pills);
   leftContainer.appendChild(linkBox);
 
-  // 履歴（右側）
-  const histTitle = document.createElement("div");
-  histTitle.className = "small";
-  histTitle.textContent = "履歴（クリックすると右側にその回の内容を表示）";
-  histTitle.style.marginBottom = "6px";
-  rightContainer.appendChild(histTitle);
+  // 履歴セクション（チャートの下）
+  // カード詳細画面の縦幅に合わせる（DOMに追加後に高さを取得）
+  const updateHistoryHeight = () => {
+    const detailLeftHeight = leftContainer.offsetHeight || leftContainer.getBoundingClientRect().height;
+    const maxHeight = Math.max(detailLeftHeight, 200); // 最小200px
+    historyContainer.style.height = `${maxHeight}px`;
+    
+    // 無制限の縦線が最も長くなるように、カード詳細画面の高さに合わせて計算
+    // 禁止=1/4、制限=2/4、準制限=3/4、無制限=4/4（最大）
+    const maxLineLength = maxHeight - 50; // 上部の余白と下部の余白を考慮
+    const lineLengths = {
+      0: maxLineLength * 0.25, // 禁止
+      1: maxLineLength * 0.5,  // 制限
+      2: maxLineLength * 0.75, // 準制限
+      3: maxLineLength * 1.0   // 無制限
+    };
+    return lineLengths;
+  };
   
-  const hist = document.createElement("div");
-  hist.className = "list";
-  hist.style.maxHeight = "40vh";
-  for(let i=0;i<rounds.length;i++){
-    const v=c.states[i];
-    const vv=(v===null||v===undefined||v==="-"||v==="－")?"-":v;
-    const item=document.createElement("div");
-    item.className="item";
-    const badge=document.createElement("div");
-    badge.className="badge"; badge.style.background=stateColorVar(vv);
-    const w=document.createElement("div");
-    const t=document.createElement("div"); t.className="t"; t.textContent=`${rounds[i]}：${stateLabel(vv)}`;
-    const d=document.createElement("div"); d.className="d"; d.textContent=(dateStrs[i]||"");
-    w.appendChild(t); w.appendChild(d);
-    item.appendChild(badge); item.appendChild(w);
-
-    item.addEventListener("click", async ()=>{
-      selected={cardIndex, atIndex:i};
-      render();
-      try{
-        const reg=await loadReg(rounds[i]);
-        renderRoundPanel(rounds[i], reg, c.name);
-      }catch(e){
-        document.getElementById("regErr").textContent="レギュレーションJSONの読み込みに失敗しました。";
-        renderRoundPanel(rounds[i], null, c.name);
+  // チャートと同じスケールを適用
+  historyContainer.style.transform = `scaleX(1)`;
+  historyContainer.style.transformOrigin = "left center";
+  
+  // 線の長さを計算（初期値）
+  const lineLengths = updateHistoryHeight();
+  
+  // 各セグメントの開始位置に縦線を追加（チャートと同じ計算方法を使用）
+  const segments = buildSegments(c.states, c.debut);
+  for(const seg of segments){
+    // 未登場（"-"）をスキップ
+    if(seg.v === "-" || seg.v === null || seg.v === undefined) continue;
+    
+    const stateNum = typeof seg.v === "number" ? seg.v : parseInt(seg.v, 10);
+    if(isNaN(stateNum)) continue;
+    
+    // チャートと同じ計算方法で位置を計算
+    const x1 = 100 * (daysBetween(minDate, seg.start) / totalDays);
+    if(x1 < 0 || x1 > 100) continue;
+    
+    const lineHeight = lineLengths[stateNum];
+    
+    // 日付から対応するレギュレーション（round）を特定
+    let targetRoundIndex = -1;
+    let targetRound = null;
+    
+    // まず、seg.startがdates配列のどの要素と一致するかを確認
+    for(let i = 0; i < dates.length; i++){
+      if(dates[i] && dates[i].getTime() === seg.start.getTime()){
+        targetRoundIndex = i;
+        targetRound = rounds[i];
+        break;
+      }
+    }
+    
+    // 一致しない場合（初登場時点など）、seg.start以前で最も近いレギュレーションを探す
+    if(!targetRound){
+      // seg.iが有効な場合はそれを使用（buildSegmentsで保持されている元のインデックス）
+      if(seg.i !== undefined && seg.i >= 0 && seg.i < rounds.length){
+        targetRoundIndex = seg.i;
+        targetRound = rounds[seg.i];
+      }else{
+        // 初登場日以前で最も近いレギュレーションを探す
+        const debutDate = parseDate(getDebut(c.name, c.debut) || c.debut);
+        if(debutDate && seg.start.getTime() === debutDate.getTime()){
+          for(let i = dates.length - 1; i >= 0; i--){
+            if(dates[i] && dates[i] <= seg.start){
+              targetRoundIndex = i;
+              targetRound = rounds[i];
+              break;
+            }
+          }
+        }else{
+          // その他の場合、seg.start以前で最も近いレギュレーションを探す
+          for(let i = dates.length - 1; i >= 0; i--){
+            if(dates[i] && dates[i] <= seg.start){
+              targetRoundIndex = i;
+              targetRound = rounds[i];
+              break;
+            }
+          }
+        }
+      }
+    }
+    
+    // クリックイベントハンドラ
+    const handleClick = async (ev) => {
+      ev.stopPropagation();
+      if(targetRound && targetRoundIndex >= 0){
+        // selectedを設定して、カード詳細画面を閉じたときに解除できるようにする
+        selected = { cardIndex: c._idx, atIndex: targetRoundIndex };
+        try{
+          const reg = await loadReg(targetRound);
+          renderRoundPanel(targetRound, reg, c.name);
+        }catch(e){
+          document.getElementById("regErr").textContent = "レギュレーションJSONの読み込みに失敗しました。";
+          renderRoundPanel(targetRound, null, c.name);
+        }
+      }
+    };
+    
+    // 線を少し短くしてラベルと被らないようにする
+    const linePadding = 15; // ラベル用の余白
+    const adjustedLineHeight = lineHeight - linePadding;
+    
+    // 縦線
+    const line = document.createElement("div");
+    line.className = "historyLine";
+    line.setAttribute("data-state", stateNum);
+    line.setAttribute("data-base-height", adjustedLineHeight);
+    line.style.left = `${x1}%`;
+    line.style.height = `${adjustedLineHeight + 16}px`; // 16pxはrowDetailのpadding分
+    line.style.background = stateColorVar(stateNum);
+    line.style.cursor = "pointer";
+    line.title = `${targetRound || ""}：${stateLabel(stateNum)}`;
+    line.addEventListener("click", handleClick);
+    historyContainer.appendChild(line);
+    
+    // ラベル（90度回転、縦線の先端と日付の間）
+    const stateLabelEl = document.createElement("div");
+    stateLabelEl.className = "historyLabel";
+    stateLabelEl.setAttribute("data-state", stateNum);
+    stateLabelEl.textContent = stateShortLabel(stateNum);
+    stateLabelEl.style.left = `${x1}%`;
+    stateLabelEl.style.top = `${adjustedLineHeight}px`;
+    stateLabelEl.style.color = stateColorVar(stateNum);
+    stateLabelEl.style.cursor = "pointer";
+    stateLabelEl.addEventListener("click", handleClick);
+    historyContainer.appendChild(stateLabelEl);
+    
+    // 日付（90度回転、ラベルの下）
+    // ラベルのフォントサイズ（11px）分の間隔を確保
+    const labelFontSize = 11; // ラベルのフォントサイズ
+    const labelSpacing = labelFontSize + 23; // ラベルと日付の間隔（フォントサイズ + 余白）
+    const dateLabel = document.createElement("div");
+    dateLabel.className = "historyDate";
+    dateLabel.setAttribute("data-state", stateNum);
+    dateLabel.textContent = toISO(seg.start);
+    dateLabel.style.left = `${x1}%`;
+    dateLabel.style.top = `${adjustedLineHeight + labelSpacing}px`; // ラベルの下（ラベルのフォントサイズ + 余白）
+    dateLabel.style.cursor = "pointer";
+    dateLabel.addEventListener("click", handleClick);
+    historyContainer.appendChild(dateLabel);
+  }
+  
+  // DOMに追加後に高さを再計算（確実に取得するため）
+  container.appendChild(leftContainer);
+  container.appendChild(middleContainer);
+  container.appendChild(historyContainer);
+  
+  requestAnimationFrame(() => {
+    const linePadding = 15; // ラベル用の余白
+    const newLineLengths = updateHistoryHeight();
+  
+    // 既存の縦線とラベル、日付の位置を更新
+    historyContainer.querySelectorAll(".historyLine").forEach((line) => {
+      const stateNum = parseInt(line.getAttribute("data-state"), 10);
+      if(!isNaN(stateNum) && newLineLengths[stateNum] !== undefined){
+        const adjustedHeight = newLineLengths[stateNum] - linePadding;
+        line.style.height = `${adjustedHeight + 16}px`;
+        line.setAttribute("data-base-height", adjustedHeight);
       }
     });
-    hist.appendChild(item);
-  }
-  rightContainer.appendChild(hist);
-  
-  container.appendChild(leftContainer);
-  container.appendChild(rightContainer);
+    
+    historyContainer.querySelectorAll(".historyLabel").forEach((labelEl) => {
+      const stateNum = parseInt(labelEl.getAttribute("data-state"), 10);
+      if(!isNaN(stateNum) && newLineLengths[stateNum] !== undefined){
+        const adjustedHeight = newLineLengths[stateNum] - linePadding;
+        labelEl.style.top = `${adjustedHeight}px`;
+      }
+    });
+    
+    const labelFontSize = 11; // ラベルのフォントサイズ
+    const labelSpacing = labelFontSize + 23; // ラベルと日付の間隔（フォントサイズ + 余白）
+    historyContainer.querySelectorAll(".historyDate").forEach((dateLabel) => {
+      const stateNum = parseInt(dateLabel.getAttribute("data-state"), 10);
+      if(!isNaN(stateNum) && newLineLengths[stateNum] !== undefined){
+        const adjustedHeight = newLineLengths[stateNum] - linePadding;
+        dateLabel.style.top = `${adjustedHeight + labelSpacing}px`; // ラベルの下（ラベルのフォントサイズ + 余白）
+      }
+    });
+  });
 }
 
 async function selectCard(cardIndex, atIndex){
   selected={cardIndex, atIndex};
   const c=cards[cardIndex];
+
+  // カード詳細画面が閉じている場合のみ開く
+  if(expandedCardIndex !== cardIndex){
+    expandedCardIndex = cardIndex;
+    render(); // renderを呼び出して詳細画面を開く
+  }
 
   if(atIndex!==null){
     try{
@@ -1141,9 +1342,12 @@ async function selectCard(cardIndex, atIndex){
 
 // Controls
 document.getElementById("q").addEventListener("input", ()=>render());
+document.getElementById("clearSearch").addEventListener("click", ()=>{
+  document.getElementById("q").value = "";
+  render();
+});
 document.getElementById("filter").addEventListener("change", ()=>render());
 document.getElementById("sort").addEventListener("change", ()=>render());
-document.getElementById("zoom").addEventListener("change", ()=>render());
 
 // Close buttons
 // Close buttonsは削除（不要になった）
@@ -1197,15 +1401,8 @@ async function boot(){
   progress.textContent="データを読み込み中...";
   await Promise.all([loadLinks(), loadCardIndex(), loadEvents()]);
 
-  progress.textContent="回一覧を読み込み中...";
-  const idx = await loadRegIndex();
-
-  const regs = [];
-  for(let i=0;i<idx.length;i++){
-    progress.textContent=`回データを読み込み中... (${i+1}/${idx.length})`;
-    const reg = await fetchJSON(idx[i].file);
-    regs.push(reg);
-  }
+  progress.textContent="レギュレーションデータを読み込み中...";
+  const regs = await loadRegulationsData();
 
   progress.textContent="チャートを生成中...";
   cards = buildCardStatesFromRounds(regs);
