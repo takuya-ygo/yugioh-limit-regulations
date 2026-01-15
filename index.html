@@ -790,6 +790,19 @@ if(s.end.getTime() <= s.start.getTime() + 1){
     const detailDiv = document.getElementById(`cardDetail_${expandedCardIndex}`);
     if(detailDiv){
       renderCardDetail(expandedCardIndex, detailDiv);
+      
+      // カード詳細画面が開いた際に、その行をスクロールエリアの先頭に来るようにスクロール
+      requestAnimationFrame(() => {
+        const row = detailDiv.closest('.row');
+        if(row && rowsEl){
+          // 年表（axisRow）の高さを取得
+          const axisRow = rowsEl.querySelector('.axisRow');
+          const axisHeight = axisRow ? axisRow.offsetHeight : 0;
+          // 行の位置をスクロールエリアの先頭に合わせる（年表の高さ分だけ下げる）
+          const rowTop = row.offsetTop;
+          rowsEl.scrollTop = rowTop - axisHeight;
+        }
+      });
     }
   }
 }
